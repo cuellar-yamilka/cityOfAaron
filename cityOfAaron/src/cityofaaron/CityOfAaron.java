@@ -7,6 +7,7 @@
 package cityofaaron;
 
 import byui.cit260.cityOfAaron.model.CropData;
+import byui.cit260.cityOfAaron.model.Location;
 import byui.cit260.cityOfAaron.model.Player;
 import byui.cit260.cityOfAaron.model.TeamMember;
 
@@ -120,6 +121,18 @@ public class CityOfAaron {
      System.out.println("The amount of wheat for people is " 
                         + wheatForPeopleAmt);
             
+     //TEST CODE for Location class - AUTHOR Alejandra Canales - L04 Individual Assignment
+
+     Location description = new Location();
+     description.setDescription("Washington");
+     String whereLocation = description.getDescription();
+     System.out.println("The location is " + whereLocation);
+     
+     Location symbol = new Location();
+     symbol.setSymbol("blank");
+     String whatSymbol = symbol.getSymbol();
+     System.out.println("The symbol is " + whatSymbol);
+     
     }
                 
 }
