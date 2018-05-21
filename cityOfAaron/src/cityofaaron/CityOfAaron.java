@@ -7,6 +7,7 @@
 package cityofaaron;
 
 import byui.cit260.cityOfAaron.model.CropData;
+import byui.cit260.cityOfAaron.model.ListItem;
 import byui.cit260.cityOfAaron.model.Location;
 import byui.cit260.cityOfAaron.model.Player;
 import byui.cit260.cityOfAaron.model.TeamMember;
@@ -133,6 +134,16 @@ public class CityOfAaron {
      String whatSymbol = symbol.getSymbol();
      System.out.println("The symbol is " + whatSymbol);
      
+     //Test code for ListItem class Author: Yamilka Cuellar-L04 Individual Assig
+     
+     ListItem menuOption = new ListItem();
+     menuOption.setName("Animals");
+     menuOption.setNumber(1);
+     
+     String menuOptionName = menuOption.getName();
+     int menuOptionNumber = menuOption.getNumber();
+     
+     System.out.println("El menu " + menuOptionNumber + "es " + menuOptionName); 
     }
                 
 }
