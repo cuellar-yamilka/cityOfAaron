@@ -143,7 +143,7 @@ public class CityOfAaron {
      String menuOptionName = menuOption.getName();
      int menuOptionNumber = menuOption.getNumber();
      
-     System.out.println("The Menu " + menuOptionNumber + "is " + menuOptionName); 
+     System.out.println("The Menu " + menuOptionNumber + " is " + menuOptionName); 
     }
                 
 }
