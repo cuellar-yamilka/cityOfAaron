@@ -23,127 +23,116 @@ public class CityOfAaron {
      */
     public static void main(String[] args) {
         
-     Player thePlayer = new Player();
+        Player thePlayer = new Player();
      
-     thePlayer.setName("John");
+        thePlayer.setName("John");
      
-     String thePlayerName = thePlayer.getName();
-     System.out.println("The name is " + thePlayerName);
+        String thePlayerName = thePlayer.getName();
+        System.out.println("The name is " + thePlayerName);
      
-     String name1 = TeamMember.ALEJANDRA.getName();
-     String title1 = TeamMember.ALEJANDRA.getTitle();
+        String name1 = TeamMember.ALEJANDRA.getName();
+        String title1 = TeamMember.ALEJANDRA.getTitle();
      
-     System.out.println("The team member name is " + name1 + " and the title is "
-             + title1);
+        System.out.println("The team member name is " + name1 
+                        + " and the title is " + title1);
     
-    //TEST CODE for CropData class - AUTHOR Patricia Struk - L04 Individual assign.        
+    //TEST CODE for CropData class-AUTHOR Patricia Struk - L04 Individual assign.        
         
-     CropData year = new CropData();
-     year.setYear(3);
-     int yearNumber = year.getYear();
-     System.out.println("The year is " + yearNumber);
+        CropData cropData = new CropData();
         
-     CropData population = new CropData();
-     population.setPopulation(250);
-     int populationAmt = population.getPopulation();
-     System.out.println("The population is " + populationAmt);
+        cropData.setYear(3);
+        int yearNumber = cropData.getYear();
+        System.out.println("The year is " + yearNumber);
+        
+        cropData.setPopulation(250);
+        int populationAmt = cropData.getPopulation();
+        System.out.println("The population is " + populationAmt);
+        
+        cropData.setAcresOwned(30);
+        int totalAcresOwned = cropData.getAcresOwned();
+        System.out.println("Acres owned is " + totalAcresOwned);
+        
+        cropData.setCropYield(7);
+        int cropYieldTotal = cropData.getCropYield();
+        System.out.println("The crop yield is " + cropYieldTotal);
+        
+        cropData.setWheatInStore(3);
+        int wheatInStoreAmt = cropData.getWheatInStore();
+        System.out.println("The wheat in store is " + wheatInStoreAmt);
+        
+        cropData.setNumberWhoDied(4);
+        int totalNumberWhoDied = cropData.getNumberWhoDied();
+        System.out.println("The number who died is " + totalNumberWhoDied);
+        
+        cropData.setNewPeople(4);
+        int newPeopleAmt = cropData.getNewPeople();
+        System.out.println("The number of new people is " + newPeopleAmt);
+        
+        cropData.setHarvest(7);
+        int harvestAmt = cropData.getHarvest();
+        System.out.println("The harvest amount is " + harvestAmt);
        
-     CropData acresOwned = new CropData();
-     acresOwned.setAcresOwned(30);
-     int totalAcresOwned = acresOwned.getAcresOwned();
-     System.out.println("Acres owned is " + totalAcresOwned);
+        cropData.setHarvestAfterOffering(5);
+        int harvestAfterOfferingAmt = cropData.getHarvestAfterOffering();
+        System.out.println("The harvest amount after offerings is " 
+                            + harvestAfterOfferingAmt);
         
-     CropData cropYield = new CropData();
-     cropYield.setCropYield(7);
-     int cropYieldTotal = cropYield.getCropYield();
-     System.out.println("The crop yield is " + cropYieldTotal);
-        
-     CropData wheatInStore = new CropData();
-     wheatInStore.setWheatInStore(3);
-     int wheatInStoreAmt = wheatInStore.getWheatInStore();
-     System.out.println("The wheat in store is " + wheatInStoreAmt);
-        
-     CropData numberWhoDied = new CropData();
-     numberWhoDied.setNumberWhoDied(4);
-     int totalNumberWhoDied = numberWhoDied.getNumberWhoDied();
-     System.out.println("The number who died is " + totalNumberWhoDied);
-        
-     CropData newPeople = new CropData();
-     newPeople.setNewPeople(4);
-     int newPeopleAmt = newPeople.getNewPeople();
-     System.out.println("The number of new people is " + newPeopleAmt);
-        
-     CropData harvest = new CropData();
-     harvest.setHarvest(7);
-     int harvestAmt = harvest.getHarvest();
-     System.out.println("The harvest amount is " + harvestAmt);
-        
-     CropData harvestAfterOffering = new CropData();
-     harvestAfterOffering.setHarvestAfterOffering(5);
-     int harvestAfterOfferingAmt = harvestAfterOffering.getHarvestAfterOffering();
-     System.out.println("The harvest amount after offerings is " 
-                        + harvestAfterOfferingAmt);
-        
-     CropData offering = new CropData();
-     offering.setOffering(2);
-     int totalOffering = offering.getOffering();
-     System.out.println("The offering amount is " + totalOffering);
-        
-     CropData offeringBushels = new CropData();
-     offeringBushels.setOfferingBushels(3);
-     int offeringBushelsAmt = offeringBushels.getOfferingBushels();
-     System.out.println("The amount of offering bushels is " 
-                        + offeringBushelsAmt);
-        
-     CropData peopleFed = new CropData();
-     peopleFed.setPeopleFed(16);
-     int totalPeopleFed = peopleFed.getPeopleFed();
-     System.out.println("The number of people fed is " + totalPeopleFed);
-        
-     CropData acresPlanted = new CropData();
-     acresPlanted.setAcresPlanted(15);
-     int totalAcresPlanted = acresPlanted.getAcresPlanted();
-     System.out.println("The number of acres planted is " 
-                        + totalAcresPlanted);
-        
-     CropData numStarved = new CropData();
-     numStarved.setNumStarved(1);
-     int totalNumStarved = numStarved.getNumStarved();
-     System.out.println("The number who starved is " + totalNumStarved);
-        
-     CropData eatenByRats = new CropData();
-     eatenByRats.setEatenByRats(4);
-     int amtEatenByRats = eatenByRats.getEatenByRats();
-     System.out.println("The amount eaten by rats is " + amtEatenByRats);
+        cropData.setOffering(10);
+        int totalOffering = cropData.getOffering();
+        System.out.println("The offering amount is " + totalOffering);
        
-     CropData wheatForPeople = new CropData();
-     wheatForPeople.setWheatForPeople(8);
-     int wheatForPeopleAmt = wheatForPeople.getWheatForPeople();
-     System.out.println("The amount of wheat for people is " 
-                        + wheatForPeopleAmt);
-            
-     //TEST CODE for Location class - AUTHOR Alejandra Canales - L04 Individual Assignment
+        cropData.setOfferingBushels(3);
+        int offeringBushelsAmt = cropData.getOfferingBushels();
+        System.out.println("The amount of offering bushels is " 
+                            + offeringBushelsAmt);
+        
+        cropData.setPeopleFed(16);
+        int totalPeopleFed = cropData.getPeopleFed();
+        System.out.println("The number of people fed is " + totalPeopleFed);
+        
+        cropData.setAcresPlanted(15);
+        int totalAcresPlanted = cropData.getAcresPlanted();
+        System.out.println("The number of acres planted is " 
+                + totalAcresPlanted);
+        
+        cropData.setNumStarved(1);
+        int totalNumStarved = cropData.getNumStarved();
+        System.out.println("The number who starved is " + totalNumStarved);
+        
+        cropData.setEatenByRats(4);
+        int amtEatenByRats = cropData.getEatenByRats();
+        System.out.println("The amount eaten by rats is " + amtEatenByRats);
+        
+        cropData.setWheatForPeople(8);
+        int wheatForPeopleAmt = cropData.getWheatForPeople();
+        System.out.println("The amount of wheat for people is " 
+                + wheatForPeopleAmt);
+         
+    //TEST CODE for Location class - AUTHOR Alejandra Canales - L04 Individual Assignment
 
-     Location description = new Location();
-     description.setDescription("Washington");
-     String whereLocation = description.getDescription();
-     System.out.println("The location is " + whereLocation);
+        Location location = new Location();
      
-     Location symbol = new Location();
-     symbol.setSymbol("blank");
-     String whatSymbol = symbol.getSymbol();
-     System.out.println("The symbol is " + whatSymbol);
+        location.setDescription("Washington");
+        String whereLocation = location.getDescription();
+        System.out.println("The location is " + whereLocation);
+    
+        location.setSymbol("blank");
+        String whatSymbol = location.getSymbol();
+        System.out.println("The symbol is " + whatSymbol);
      
-     //Test code for ListItem class Author: Yamilka Cuellar-L04 Individual Assig
+    //Test code for ListItem class Author: Yamilka Cuellar-L04 Individual Assig
      
-     ListItem menuOption = new ListItem();
-     menuOption.setName("Animals");
-     menuOption.setNumber(1);
+        ListItem menuOption = new ListItem();
      
-     String menuOptionName = menuOption.getName();
-     int menuOptionNumber = menuOption.getNumber();
+        menuOption.setName("Animals");
+        menuOption.setNumber(1);
      
-     System.out.println("The Menu " + menuOptionNumber + " is " + menuOptionName); 
+        String menuOptionName = menuOption.getName();
+        int menuOptionNumber = menuOption.getNumber();
+     
+        System.out.println("The Menu " + menuOptionNumber + " is " 
+                            + menuOptionName);
+          
     }
                 
 }
