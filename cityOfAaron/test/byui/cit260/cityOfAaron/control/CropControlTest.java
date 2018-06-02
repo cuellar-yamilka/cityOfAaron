@@ -130,5 +130,67 @@ public class CropControlTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
+
+// L06-Individual Assignment-Unit Tests for setOffering() AUTHOR: Patricia Struk
+    
+    @Test
+    public void testSetOfferingValid1() {
+        System.out.println("setOfferingValid1");
+        CropData cropData = new CropData();
+        
+        cropData.setOffering(10);
+        int returnValue = 10;
+        
+        int result = CropControl.setOffering(cropData.getOffering(), cropData);
+        assertEquals(returnValue, result);
+    }
+    
+    @Test
+    public void testSetOfferingInvalid2() {
+        System.out.println("setOfferingInvalid2");
+        CropData cropData = new CropData();
+        
+        cropData.setOffering(-10);
+        int returnValue = -1;
+        
+        int result = CropControl.setOffering(cropData.getOffering(), cropData);
+        assertEquals(returnValue, result);
+    }
+        
+  @Test
+    public void testSetOfferingInvalid3() {
+        System.out.println("setOfferingInvalid3");
+        CropData cropData = new CropData();
+        
+        cropData.setOffering(110);
+        int returnValue = -1;
+        
+        int result = CropControl.setOffering(cropData.getOffering(), cropData);
+        assertEquals(returnValue, result);
+    }      
+    
+ @Test
+    public void testSetOfferingBoundary4() {
+        System.out.println("setOfferingBoundary4");
+        CropData cropData = new CropData();
+        
+        cropData.setOffering(0);
+        int returnValue = 0;
+        
+        int result = CropControl.setOffering(cropData.getOffering(), cropData);
+        assertEquals(returnValue, result);
+    }   
+    
+ @Test
+    public void testSetOfferingBoundary5() {
+        System.out.println("setOfferingBoundary5");
+        CropData cropData = new CropData();
+        
+        cropData.setOffering(100);
+        int returnValue = 100;
+        
+        int result = CropControl.setOffering(cropData.getOffering(), cropData);
+        assertEquals(returnValue, result);
+    }   
     
 }

@@ -52,6 +52,33 @@ public class CropControl {
         
 // return acresOwned
         return acresOwned;
+    } 
+    
+// Lesson 6 Individual Assignment - setOffering() method - AUTHOR Patricia Struk
+      
+// The setOffering() method 
+// Purpose: To get an offering percentage inputted by the user and verify if it
+//           fits the pre-conditions. If it is valid, the percentage is saved. 
+// Parameters: An offering percentage and a reference to a CropData object
+// Returns: A valid percentage, or an error message if it’s invalid.  
+// Pre-conditions: The percentage entered must positive. 
+//                 The percentage must be <= 100. 
+
+    public static int setOffering(int offeringPercentage, CropData cropData){
+      
+// If offeringPercentage < 0, return -1
+        if (offeringPercentage < 0) {
+            return -1;
+        }
+// If offeringPercentage is > 100, return -1
+        if (offeringPercentage > 100) {
+            return -1;
+        }
+// Otherwise, save offeringPercentage 
+        cropData.setOffering(offeringPercentage);  
         
-    }    
+// return offeringPercentage	
+        return offeringPercentage;
+    }
+    
 }
