@@ -143,6 +143,8 @@ public class CropControlTest {
         
         int result = CropControl.setOffering(cropData.getOffering(), cropData);
         assertEquals(returnValue, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
     }
     
     @Test
@@ -193,4 +195,112 @@ public class CropControlTest {
         assertEquals(returnValue, result);
     }   
     
+
+// L06-Individual Assignment-Unit Tests for plantCrops() AUTHOR: Yamilka Cuellar
+
+@Test
+public void testPlantCropsValid1() {
+    System.out.println("plantCropsValid1");
+    CropData cropData = new CropData();
+
+    int acresPlanted = 500;
+    cropData.setAcresOwned(1000);
+    cropData.setWheatInStore(2700);
+    int returnValue = 2450;
+    
+    int result = CropControl.plantCrops(acresPlanted, cropData);
+    assertEquals(returnValue, result);
+    // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+}
+
+@Test
+public void testPlantCropsInvalid2() {
+    System.out.println("plantCropsInvalid2");
+    CropData cropData = new CropData();
+
+    int acresPlanted = -5;
+    cropData.setAcresOwned(1000);
+    cropData.setWheatInStore(2700);
+    int returnValue = -1;
+    
+    int result = CropControl.plantCrops(acresPlanted, cropData);
+    assertEquals(returnValue, result);
+    
+}
+
+@Test
+public void testPlantCropsInvalid3() {
+    System.out.println("plantCropsInvalid3");
+    CropData cropData = new CropData();
+
+    int acresPlanted = 1100;
+    cropData.setAcresOwned(1000);
+    cropData.setWheatInStore(2700);
+    int returnValue = -1;
+    
+    int result = CropControl.plantCrops(acresPlanted, cropData);
+    assertEquals(returnValue, result);
+    
+}
+
+@Test
+public void testPlantCropsInvalid4() {
+    System.out.println("plantCropsInvalid4");
+    CropData cropData = new CropData();
+
+    int acresPlanted = 500;
+    cropData.setAcresOwned(1000);
+    cropData.setWheatInStore(200);
+    int returnValue = -1;
+    
+    int result = CropControl.plantCrops(acresPlanted, cropData);
+    assertEquals(returnValue, result);
+    
+}
+
+@Test
+public void testPlantCropsBoundary5() {
+    System.out.println("plantCropsBoundary5");
+    CropData cropData = new CropData();
+
+    int acresPlanted = 1000;
+    cropData.setAcresOwned(1000);
+    cropData.setWheatInStore(2700);
+    int returnValue = 2200;
+    
+    int result = CropControl.plantCrops(acresPlanted, cropData);
+    assertEquals(returnValue, result);
+    
+}
+
+@Test
+public void testPlantCropsBoundary6() {
+    System.out.println("plantCropsBoundary6");
+    CropData cropData = new CropData();
+
+    int acresPlanted = 500;
+    cropData.setAcresOwned(1000);
+    cropData.setWheatInStore(250);
+    int returnValue = 0;
+    
+    int result = CropControl.plantCrops(acresPlanted, cropData);
+    assertEquals(returnValue, result);
+    
+}
+
+@Test
+public void testPlantCropsBoundary7() {
+    System.out.println("plantCropsBoundary7");
+    CropData cropData = new CropData();
+
+    int acresPlanted = 0;
+    cropData.setAcresOwned(1000);
+    cropData.setWheatInStore(2700);
+    int returnValue = 2700;
+    
+    int result = CropControl.plantCrops(acresPlanted, cropData);
+    assertEquals(returnValue, result);
+    
+}
 }

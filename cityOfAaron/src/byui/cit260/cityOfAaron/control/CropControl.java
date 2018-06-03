@@ -81,4 +81,42 @@ public class CropControl {
         return offeringPercentage;
     }
     
+
+// Lesson 6 Individual Assignment - plantCrops() method - AUTHOR Yamilka Cuellar
+
+// The plantCrops () method
+// Purpose: To plant crops
+// Parameters: The number of acres to plant is get from the user input and a 
+//      reference to a CropData object
+// Returns: The amount of wheat you have left
+// Pre-conditions: The number of acres to plant needs to be positive
+// The number of acres owned needs to be enough to plant the land
+// The amount of wheat in store has to be enough to plant the land 
+//     (you can plant 2 acres with one bushel of wheat)
+
+    public static int plantCrops(int acresPlanted,  CropData cropData){
+
+//If acresPlanted < 0, return -1
+        if (acresPlanted < 0) {
+            return -1;
+        }
+
+//If acresPlanted > acresOwned, return -1
+        if (acresPlanted > cropData.getAcresOwned()) {
+            return -1;
+        }
+
+//If wheatInStore < (acresPlanted / 2), return -1
+        if (cropData.getWheatInStore() < (acresPlanted / 2)) {
+            return -1;
+        }
+
+//wheatInStore = wheatInStore – (acresPlanted / 2)
+        int wheatInStore = cropData.getWheatInStore() - (acresPlanted / 2);
+        cropData.setWheatInStore(wheatInStore);
+
+//return wheatInStore
+        return wheatInStore;
+
+}
 }
