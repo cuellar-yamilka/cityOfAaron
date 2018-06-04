@@ -303,4 +303,74 @@ public void testPlantCropsBoundary7() {
     assertEquals(returnValue, result);
     
 }
+    // L06-Individual Assignment-Unit Tests for feedPeople() AUTHOR: Alejandra Canales 
+    @Test
+    
+    public void testFeedPeopleValid1() {
+        System.out.println("feedPeopleValid1");
+        CropData cropData = new CropData();
+
+        int wheatWanted = 400;
+        cropData.setWheatInStore(500);
+        int returnValue = 100;
+
+        int result = CropControl.feedPeople(wheatWanted,cropData.getWheatInStore(), cropData);
+        assertEquals(returnValue , result);
+        
+        
+    }
+    @Test
+    
+    public void testFeedPeopleInvalid2() {
+        System.out.println("feedPeopleInvalid2");
+        CropData cropData = new CropData();
+
+        int wheatWanted = -5;
+        cropData.setWheatInStore(500);
+        int returnValue = -1;
+
+        int result = CropControl.feedPeople(wheatWanted,cropData.getWheatInStore(), cropData);
+        assertEquals(returnValue , result);
+        
+    }
+    @Test
+    
+     public void testFeedPeopleInvalid3() {
+        System.out.println("feedPeopleInvalid3");
+        CropData cropData = new CropData();
+
+        int wheatWanted = 600;
+        cropData.setWheatInStore(500);
+        int returnValue = -1;
+
+        int result = CropControl.feedPeople(wheatWanted,cropData.getWheatInStore(), cropData);
+        assertEquals(returnValue , result);
+        
+    }
+     @Test
+     
+     public void testFeedPeopleBoundary4() {
+        System.out.println("feedPeopleBoundary4");
+        CropData cropData = new CropData();
+
+        int wheatWanted = 500;
+        cropData.setWheatInStore(500);
+        int returnValue = 0;
+
+        int result = CropControl.feedPeople(wheatWanted,cropData.getWheatInStore(), cropData);
+        assertEquals(returnValue , result);
+    }
+     @Test
+     
+     public void testFeedPeopleBoundary5() {
+        System.out.println("feedPeopleBoundary5");
+        CropData cropData = new CropData();
+
+        int wheatWanted = 0;
+        cropData.setWheatInStore(500);
+        int returnValue = 500;
+
+        int result = CropControl.feedPeople(wheatWanted,cropData.getWheatInStore(), cropData);
+        assertEquals(returnValue , result);
+    }
 }

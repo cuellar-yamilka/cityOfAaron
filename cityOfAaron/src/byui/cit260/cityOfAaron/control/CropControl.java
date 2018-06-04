@@ -119,4 +119,32 @@ public class CropControl {
         return wheatInStore;
 
 }
+    // Lesson 6 Individual Assignment - feedPeople() method - AUTHOR Alejandra Canales
+// the feedPeople method
+// purpose: to figure out how many bushels of grain the user wants to give the people
+// the method to allocate wheat for the feeding the people
+// parameters: The number of bushels of wheat wanted, number of bushels of wheat in storage
+// reference to a CropData object.
+// returns: the number of bushels of wheat you have left
+// pre-conditions: the amount of bushels of grain they want must be positive
+// and <= the number of wheat that the city has in storage.
+    
+public static int feedPeople(int wheatWanted, int wheatInStore, CropData cropData){
+
+//If wheatWanted < 0, return -1
+	if(wheatWanted < 0){
+	return -1;
+        }
+//If wheatInStore < wheatWanted, return -1
+	if(cropData.getWheatInStore() < wheatWanted){
+	return -1;
+        }
+
+//wheatOwned = wheatInStore – wheatWanted
+	int wheatOwned = wheatInStore - wheatWanted ; 
+
+//return wheatOwned
+	return wheatOwned;
+    }  
+    
 }
