@@ -114,6 +114,9 @@ public class CropControl {
 //wheatInStore = wheatInStore – (acresPlanted / 2)
         int wheatInStore = cropData.getWheatInStore() - (acresPlanted / 2);
         cropData.setWheatInStore(wheatInStore);
+        
+//save the acresPlanted in the cropData object
+        cropData.setAcresPlanted(acresPlanted);
 
 //return wheatInStore
         return wheatInStore;
@@ -142,7 +145,7 @@ public static int feedPeople(int wheatWanted, int wheatInStore, CropData cropDat
 
 //wheatOwned = wheatInStore – wheatWanted
 	int wheatOwned = wheatInStore - wheatWanted ; 
-
+        
 //return wheatOwned
 	return wheatOwned;
     }  
