@@ -11,17 +11,22 @@ import byui.cit260.cityOfAaron.model.ListItem;
 import byui.cit260.cityOfAaron.model.Location;
 import byui.cit260.cityOfAaron.model.Player;
 import byui.cit260.cityOfAaron.model.TeamMember;
+import byui.cit260.cityOfAaron.view.*;
+import byui.cit260.cityOfAaron.model.Game;
 
 /**
  *
  * @author clami
  */
 public class CityOfAaron {
-
-    /**
-     * @param args the command line arguments
-     */
+    //variable for keeping a reference to the Game object
+    private static Game theGame = null;
+    
+    //main function - entry point for the program
+    //runs the main menu
     public static void main(String[] args) {
+        MainMenuView mmv = new MainMenuView();
+        mmv.displayMenuView();
         
         Player thePlayer = new Player();
      
@@ -134,5 +139,13 @@ public class CityOfAaron {
                             + menuOptionName);
           
     }
-                
-}
+    
+    public static void setTheGame(Game game){
+        theGame = game;
+    }
+    public static Game getTheGame(){
+        return theGame;
+    }
+    
+    
+} //end of class

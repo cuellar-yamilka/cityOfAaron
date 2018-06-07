@@ -145,6 +145,11 @@ public static int feedPeople(int wheatWanted, int wheatInStore, CropData cropDat
 
 //wheatOwned = wheatInStore – wheatWanted
 	int wheatOwned = wheatInStore - wheatWanted ; 
+        cropData.setWheatInStore(wheatOwned);
+        
+// save the wheat wanted 
+        cropData.setWheatForPeople(wheatWanted);
+ 
         
 //return wheatOwned
 	return wheatOwned;
