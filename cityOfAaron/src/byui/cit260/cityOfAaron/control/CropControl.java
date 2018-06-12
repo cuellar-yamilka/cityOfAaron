@@ -7,13 +7,21 @@
 package byui.cit260.cityOfAaron.control;
 
 import byui.cit260.cityOfAaron.model.CropData;
+import java.util.Random;
 
 /**
  * Lesson 6 Team assignment
  * @authors Patricia Struk, Alejandra Canales, Yamilka Cuellar
  */
+
+
 public class CropControl {
     
+// Private methods for the CropControl class
+     private static final Random random = new Random();
+     private static int LAND_RANGE;
+     private static int LAND_BASE;
+     
 // The buyLand method
 // Purpose: To buy land
 // Parameters: the price of land, the number of acres to buy, and a reference 
@@ -153,6 +161,20 @@ public static int feedPeople(int wheatWanted, int wheatInStore, CropData cropDat
         
 //return wheatOwned
 	return wheatOwned;
-    }  
-    
-}
+    } 
+
+// Lesson 8 Individual Assignment - calcLandCost() method - AUTHOR Yamilka Cuellar
+
+// The calcLandCost () method
+// Purpose: The cost of the land is a random number between 17 and 26 bushels per acre
+// Parameters: none
+// Returns: The land cost
+
+public static int calcLandCost()
+        {
+        int landPrice = random.nextInt(LAND_RANGE) + LAND_BASE;
+        return landPrice;
+        }
+
+ 
+} // end of class
