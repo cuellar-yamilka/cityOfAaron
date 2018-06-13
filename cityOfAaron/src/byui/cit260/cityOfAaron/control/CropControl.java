@@ -16,13 +16,13 @@ import java.util.Random;
 
 
 public class CropControl {
-    
-// Random number generator
-     private static final Random random = new Random();
-     
+        
 // Constants
      private static final int LAND_RANGE = 17;
-     private static final int LAND_BASE = 9;
+     private static final int LAND_BASE = 10;
+     
+// Random number generator
+     private static final Random random = new Random();
      
 // The buyLand method
 // Purpose: To buy land

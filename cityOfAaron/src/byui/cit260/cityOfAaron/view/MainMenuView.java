@@ -6,6 +6,7 @@
 //----------------------------------------------------------------
 package byui.cit260.cityOfAaron.view;
 
+import byui.cit260.cityOfAaron.model.CropData;
 import java.util.Scanner;
 import cityofaaron.CityOfAaron;
 import byui.cit260.cityOfAaron.model.Player;
@@ -160,6 +161,31 @@ public void startNewGame()
     System.out.println("\nWelcome " + name + " have fun.");
     
     //Display the Game menu
+    
+    // Create a CropData object
+    
+    CropData cropData = new CropData();
+    
+    // Initialize it
+    
+    cropData.setYear(0);
+    cropData.setPopulation(100);
+    cropData.setNewPeople(5);
+    cropData.setCropYield(3);
+    cropData.setNumberWhoDied(0);
+    cropData.setOffering(10);
+    cropData.setWheatInStore(2700);
+    cropData.setAcresOwned(1000);
+    cropData.setAcresPlanted(1000);
+    cropData.setHarvest(3000);
+    cropData.setOfferingBushels(300);
+    cropData.setAcresPlanted(1000);
+    
+    // save a reference to it in the Game
+    
+    theGame.setCrop(cropData);
+    
+      
 }
 
 // The startSavedGame method
@@ -192,5 +218,7 @@ public void displaySaveGameView()
 { 
     System.out.println("\nSave game option selected.");
 }
+
+
 
       }//end of class
