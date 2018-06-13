@@ -6,10 +6,7 @@
 //----------------------------------------------------------------
 package byui.cit260.cityOfAaron.view;
 
-/**
- *
- * @author rozad
- */
+
 public class CropView {
     
 }
