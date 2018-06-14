@@ -112,8 +112,9 @@ public void doAction(int option)
         case 4: // Manage the crops
           manageCrops();
           break;
-        case 5:
-          mainMenuView();
+        case 5: // Return to Main Menu
+          MainMenuView theMenu = new MainMenuView();
+          theMenu.displayMenuView();
           
     }
 }
@@ -134,7 +135,8 @@ private void viewMap() {
 //Returns: none 
 
 private void viewList() {
-        System.out.println("\nThis is the list of objects");
+        PrintListMenuView listMenu = new PrintListMenuView();
+          listMenu.displayPrintListMenuView();
     }
 
 //The moveToNewLocation method
@@ -153,16 +155,6 @@ private void viewList() {
 
     private void manageCrops() {
         System.out.println("\nThis is manage the crops option");
-    }
-
-    private void mainMenuView() {
-        
-//The mainMenuView method
-//Purpose: Show return to Main Menu option
-//Parameters: none
-//Returns: none 
-    System.out.println("\nReturn to Main Menu option");
-
     }
 
     
