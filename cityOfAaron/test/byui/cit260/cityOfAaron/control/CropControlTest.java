@@ -373,4 +373,154 @@ public void testPlantCropsBoundary7() {
         int result = CropControl.feedPeople(wheatWanted,cropData.getWheatInStore(), cropData);
         assertEquals(returnValue , result);
     }
-}
+     
+   /**
+     * Unit tests for sellLand() method in CropControl class AUTHOR: Patricia Struk
+     */
+    @Test
+    public void testSellLandValid1() {
+        System.out.println("sellLandValid1");
+        CropData cropData = new CropData();
+        
+        int acresToSell = 10;
+        int landPrice = 20;
+        cropData.setAcresOwned(2800);
+        cropData.setWheatInStore(2200);
+        int returnValue = 2790;
+        
+        int result = CropControl.sellLand(landPrice, acresToSell, cropData);
+        assertEquals(returnValue, result);
+        
+    }
+    
+
+@Test
+    public void testSellLandInvalid2() {
+        System.out.println("sellLandInvalid2");
+        CropData cropData = new CropData();
+        
+        int acresToSell = -5;
+        int landPrice = 20;
+        cropData.setAcresOwned(2800);
+        cropData.setWheatInStore(2200);
+        int returnValue = -1;
+        
+        int result = CropControl.sellLand(landPrice, acresToSell, cropData);
+        assertEquals(returnValue, result);
+        
+    }    
+    
+@Test
+    public void testSellLandInvalid3() {
+        System.out.println("sellLandInvalid3");
+        CropData cropData = new CropData();
+        
+        int acresToSell = 3000;
+        int landPrice = 20;
+        cropData.setAcresOwned(2800);
+        cropData.setWheatInStore(2200);
+        int returnValue = -1;
+        
+        int result = CropControl.sellLand(landPrice, acresToSell, cropData);
+        assertEquals(returnValue, result);
+        
+    }    
+ 
+     
+ @Test
+    public void testSellLandBoundary4() {
+        System.out.println("sellLandBoundary4");
+        CropData cropData = new CropData();
+        
+        int acresToSell = 0;
+        int landPrice = 10;
+        cropData.setAcresOwned(2000);
+        cropData.setWheatInStore(2200);
+        int returnValue = 2000;
+        
+        int result = CropControl.sellLand(landPrice, acresToSell, cropData);
+        assertEquals(returnValue, result);
+        
+    }
+    
+    @Test
+    public void testSellLandBoundary5() {
+        System.out.println("sellLandBoundary5");
+        CropData cropData = new CropData();
+        
+        int acresToSell = 2000;
+        int landPrice = 10;
+        cropData.setAcresOwned(2000);
+        cropData.setWheatInStore(2200);
+        int returnValue = 0;
+        
+        int result = CropControl.sellLand(landPrice, acresToSell, cropData);
+        assertEquals(returnValue, result);
+        
+    }
+    
+//  Unit Tests for payOffering() method        AUTHOR: Patricia Struk
+    
+    @Test
+    public void testPayOfferingValid1() {
+        System.out.println("payOfferingValid1");
+        CropData cropData = new CropData();
+        
+        
+        cropData.setOffering(12);
+        cropData.setHarvest(275);
+        cropData.setWheatInStore(2225);
+        int returnValue = 2467;
+        
+        int result = CropControl.payOffering(cropData);
+        assertEquals(returnValue, result);
+        
+    }
+    
+    @Test 
+    public void testPayOfferingValid2() {
+        System.out.println("payOfferingValid2");
+        CropData cropData = new CropData();
+        
+        cropData.setOffering(8);
+        cropData.setHarvest(330);
+        cropData.setWheatInStore(2225);
+        int returnValue = 2529;
+        
+        int result = CropControl.payOffering(cropData);
+        assertEquals(returnValue, result);
+        
+    }       
+    
+    @Test
+    public void testPayOfferingBoundary3() {
+        System.out.println("payOfferingBoundary3");
+        CropData cropData = new CropData();
+        
+        cropData.setOffering(0);
+        cropData.setHarvest(275);
+        cropData.setWheatInStore(2225);
+        int returnValue = 2500;
+        
+        int result = CropControl.payOffering(cropData);
+        assertEquals(returnValue, result);
+    }
+        
+    @Test
+    
+    public void testPayOfferingBoundary4() {
+        System.out.println("payOfferingBoundary4");
+        CropData cropData = new CropData();
+        
+        cropData.setOffering(100);
+        cropData.setHarvest(275);
+        cropData.setWheatInStore(2225);
+        int returnValue = 2225;
+        
+        int result = CropControl.payOffering(cropData);
+        assertEquals(returnValue, result);   
+    }
+  
+     
+     
+}// end of class

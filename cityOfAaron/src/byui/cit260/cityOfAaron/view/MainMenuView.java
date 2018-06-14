@@ -206,7 +206,11 @@ public void startSavedGame()
 //============================================================================
 public void displayHelpMenuView()
 { 
-    System.out.println("\nHelp menu option selected.");
+//    System.out.println("\nHelp menu option selected.");  STUB
+        //code to get the Help Menu displayed
+        HelpMenuView help = new HelpMenuView();  
+        help.displayHelpMenuView();      
+    
 }
 
 // The displaySaveGameView method

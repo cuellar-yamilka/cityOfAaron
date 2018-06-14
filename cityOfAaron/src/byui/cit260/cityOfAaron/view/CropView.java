@@ -11,7 +11,6 @@ import byui.cit260.cityOfAaron.control.*;
 import java.util.Scanner;
 import cityofaaron.CityOfAaron;
 
-
 public class CropView {
     
 // create a scanner object
@@ -22,7 +21,7 @@ public class CropView {
     private static Game theGame = CityOfAaron.getTheGame();
     // Is this supposed to be getCrop or getCropData
     private static CropData cropData = theGame.getCrop();
-
+    private static int price;
 // the buyLandView() method
 // Purpose: interface with the user input for buying land
 // Parameters: none
@@ -31,18 +30,18 @@ public class CropView {
 public static void buyLandView(){
     
 // Get the cost of land for this round
-int price = CropControl.calcLandCost();
+    price = CropControl.calcLandCost();
 
 // Prompt the user to enter the number of acres to buy
-System.out.format("Land is selling for %d bushels per acre.%n", price);
-System.out.print("\nHow many acres of land do you wish to buy?");
+    System.out.format("Land is selling for %d bushels per acre.%n", price);
+    System.out.print("\nHow many acres of land do you wish to buy?");
 
 // Get the user's input and save it
-int toBuy;
-toBuy = keyboard.nextInt();
+    int toBuy;
+    toBuy = keyboard.nextInt();
 
 // Call the buyLand() method in the control layer to buy the land
-CropControl.buyLand(price, toBuy, cropData); 
+    CropControl.buyLand(price, toBuy, cropData); 
 }
 
 // the runCropsView method()
@@ -51,11 +50,11 @@ CropControl.buyLand(price, toBuy, cropData);
 //Returns: none
 
 public static void runCropsView(){
-    // call the buyLandView() method
+// call the buyLandView() method
     buyLandView();
     
-    // add calls to the other crop view methods
-    // as they are written
+// add calls to the other crop view methods
+// as they are written
 }
 
 //Individual assignment Lesson 8 author Yamilka Cuellar
@@ -76,5 +75,54 @@ toPlant = keyboard.nextInt();
 // Call the plantCrops() method in the control layer to plant the crops
 CropControl.plantCrops(toPlant, cropData); 
 }
+
+
+// Lesson 8 - Individual Assignment-sellLandView()     Author: Patricia Struk
+
+// The sellLandView() method
+// Purpose: To interface with user input in order to sell land
+// Parameters: none
+// Returns: none
+// ============================================================================
+
+    public static void sellLandView(){
     
+    // A land price was randomly generated in the buyLand() method and stored in 
+    //    a class variable called "price". The value in "price" is accessed here.  
+    // Ask user to enter the number of acres of land they want to sell
+        System.out.format("This year land is selling for %d bushels per acre.%n", price);
+        System.out.print("\nHow many acres of land would you like to sell?\n"); 
+
+    //  Get the user’s input and save it.
+        int toSell;
+        toSell = keyboard.nextInt();
+
+    // Call the sellLand() method in the control layer to sell the land
+        CropControl.sellLand(price, toSell, cropData);
+}    
+
+// payOfferingView()        Patricia Struk      CropView assignment to do
+// The payOfferingView() method
+// Purpose: To interface with user input that will determine amount of offerings
+// Parameters: none
+// Returns: none
+// ============================================================================   
+    
+    public static void payOfferingView(){
+    // Ask user to enter the percentage they would like to pay for tithes/offerings    
+        System.out.print("\nWhat percentage of the harvest do you want to pay" +
+                            " for tithes and offerings?\n");
+    
+    // Get user's input and save it.
+        int theOffering;
+        theOffering = keyboard.nextInt();
+    
+    // Call setOffering() method in control layer to check if input is valid
+    // and to save the value in the offering variable in CropData.
+        CropControl.setOffering(theOffering, cropData);
+    
+    // Call payOffering() to calculate and pay tithes and offerings
+        CropControl.payOffering(cropData);
+    
+    }    
 } // end of class

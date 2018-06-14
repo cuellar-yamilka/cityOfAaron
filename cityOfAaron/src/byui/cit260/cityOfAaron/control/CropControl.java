@@ -178,5 +178,71 @@ public static int calcLandCost()
         return landPrice;
         }
 
- 
+
+// remaining sellLand() method in CropControl class - assigned to Patricia Struk  
+// ============================================================================
+// The sellLand method
+// Purpose: To sell land
+// Parameters: the price of land, the number of acres to sell, a reference to  
+//               a CropData object
+// Returns: the number of acres left after the sale
+// Pre-conditions: acres to sell must be positive and <= the number of acresowned
+// Last modified June 2018               
+
+
+    public static int sellLand(int landPrice, int acresToSell, CropData cropData) {
+
+// If acres to sell < 0 or if acresOwned < acresToSell, return -1
+        if(acresToSell < 0 || cropData.getAcresOwned() < acresToSell){
+            return -1;
+        }
+// acresOwned = acresOwned – acresToSell, save result
+        int totAcresOwned = cropData.getAcresOwned() - acresToSell;
+        cropData.setAcresOwned(totAcresOwned);
+
+// wheatInStore = wheatInStore + (acresToSell x landPrice), save result
+        int totWheatInStore = cropData.getWheatInStore() + (acresToSell * landPrice);
+        cropData.setWheatInStore(totWheatInStore);
+// return acresOwned
+        return totAcresOwned;
+
+}    
+
+// remaining payOffering() method in Crop Control class assigned to Patricia Struk   
+// ============================================================================
+// The payOffering() method
+// Purpose: To calculate the amount of wheat to be paid to offerings
+// Parameters: offeringPercentage and a reference to a CropData object
+// Returns: wheatInStore (for unit testing purposes)
+// Pre-conditions: if offeringBushels results in a decimal point number,round result  
+// Last modified June 2018               
+
+    public static int payOffering(CropData cropData) {
+// To ensure that offeringBushels calculates as an integer, round the result of:
+// offeringBushels = offeringPercentage x harvestAmt, change it (or cast it) to
+// an int, then save the result.
+
+        int offeringBushels = (int)Math.round((cropData.getOffering() / 100.0)
+                                * cropData.getHarvest());
+        cropData.setOfferingBushels(offeringBushels);
+
+// harvestAfterOffering = harvest – offeringBushels;
+// save harvestAfterOffering
+        int harvestAfterOffering = cropData.getHarvest() - offeringBushels;
+        cropData.setHarvestAfterOffering(harvestAfterOffering);
+
+// wheatInStore = wheatInStore + harvestAfterOffering;
+// save wheatInStore
+        int wheatInStore = cropData.getWheatInStore() + harvestAfterOffering;
+        cropData.setWheatInStore(wheatInStore);
+    
+// return wheatInStore to unit test
+        return wheatInStore;
+
+}
+
+
+
+
+
 } // end of class
