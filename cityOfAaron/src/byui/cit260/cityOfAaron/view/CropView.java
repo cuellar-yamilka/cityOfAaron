@@ -58,4 +58,23 @@ public static void runCropsView(){
     // as they are written
 }
 
+//Individual assignment Lesson 8 author Yamilka Cuellar
+// the plantCropsView method()
+// Purpose: Interface with the user input for plant crops
+//Parameters: none
+//Returns: none
+
+public static void plantCropsView(){
+
+// Prompt the user to enter the number of acres to plant
+System.out.format("How many acres of land do you want to plant?");
+
+// Get the user's input and save it
+int toPlant;
+toPlant = keyboard.nextInt();
+
+// Call the plantCrops() method in the control layer to plant the crops
+CropControl.plantCrops(toPlant, cropData); 
+}
+    
 } // end of class

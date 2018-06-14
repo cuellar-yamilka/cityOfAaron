@@ -100,46 +100,70 @@ public void doAction(int option)
 {
     switch(option)
     {
-        case 1: //view map
+        case 1: //view the map
           viewMap();
           break;
-        case 2: //get and start a saved game
+        case 2: //view/print a list
           viewList();
           break;
-        case 3: // get help menu
+        case 3: // Move to a new location
           moveToNewLocation();
           break;
-        case 4: // save game
+        case 4: // Manage the crops
           manageCrops();
           break;
         case 5:
-          System.out.println();
+          mainMenuView();
+          
     }
 }
 
+//The viewMap method
+//Purpose: Show a map of the City of Aaron
+//Parameters: none
+//Returns: none 
+
 private void viewMap() {
     System.out.println("\nThis is the map of The City Of Aaron");
-    
-//        int noOfRows = 5;
-//        int noOfColumns = 5;
-//        Location[][] locationsInMap = new Location[noOfRows][noOfColumns];
-//        
+          
     }
+
+//The viewList method
+//Purpose: View/print a list of options
+//Parameters: none
+//Returns: none 
 
 private void viewList() {
         System.out.println("\nThis is the list of objects");
     }
 
+//The moveToNewLocation method
+//Purpose: Show move to a new location option
+//Parameters: none
+//Returns: none 
+
     private void moveToNewLocation() {
-        System.out.println("\nChoose a location from the list");
+        System.out.println("\nThis is the move to a new location option");
     }
+    
+//The manageCrops method
+//Purpose: Show manage the crops option
+//Parameters: none
+//Returns: none 
 
     private void manageCrops() {
-        System.out.println("\nThis is the map of The City Of Aaron");
+        System.out.println("\nThis is manage the crops option");
     }
 
+    private void mainMenuView() {
+        
+//The mainMenuView method
+//Purpose: Show return to Main Menu option
+//Parameters: none
+//Returns: none 
+    System.out.println("\nReturn to Main Menu option");
 
-
+    }
 
     
 }// end of class
