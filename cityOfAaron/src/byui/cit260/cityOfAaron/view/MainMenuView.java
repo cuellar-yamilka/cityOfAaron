@@ -27,7 +27,7 @@ public class MainMenuView {
     { 
         theMenu = "\n" +
                 "********************************************\n" +
-                "*   CITY OF AARON: MAIN GAME MENU *\n" + 
+                "*   CITY OF AARON: MAIN MENU *\n" + 
                 "********************************************\n" +
                 "1 - Start new game\n" +
                 "2 - Get and start a saved game\n" +
@@ -161,6 +161,8 @@ public void startNewGame()
     System.out.println("\nWelcome " + name + " have fun.");
     
     //Display the Game menu
+    GameMenuView gameMenu = new GameMenuView();
+    gameMenu.displayMenuView();
     
     // Create a CropData object
     
