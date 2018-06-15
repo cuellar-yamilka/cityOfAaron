@@ -154,7 +154,8 @@ private void viewList() {
 //Returns: none 
 
     private void manageCrops() {
-        System.out.println("\nThis is manage the crops option");
+//      System.out.println("\nThis is manage the crops option");
+        CropView.runCropsView();
     }
 
     

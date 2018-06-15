@@ -132,7 +132,7 @@ public class CropControl {
         return wheatInStore;
 
 }
-    // Lesson 6 Individual Assignment - feedPeople() method - AUTHOR Alejandra Canales
+// Lesson 6 Individual Assignment - feedPeople() method - AUTHOR Alejandra Canales
 // the feedPeople method
 // purpose: to figure out how many bushels of grain the user wants to give the people
 // the method to allocate wheat for the feeding the people

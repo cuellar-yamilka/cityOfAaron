@@ -160,12 +160,7 @@ public void startNewGame()
     //Display a welcome message
     System.out.println("\nWelcome " + name + " have fun.");
     
-    //Display the Game menu
-    GameMenuView gameMenu = new GameMenuView();
-    gameMenu.displayMenuView();
-    
     // Create a CropData object
-    
     CropData cropData = new CropData();
     
     // Initialize it
@@ -186,8 +181,11 @@ public void startNewGame()
     // save a reference to it in the Game
     
     theGame.setCrop(cropData);
-    
-      
+       
+//Display the Game menu
+    GameMenuView gameMenu = new GameMenuView();
+    gameMenu.displayMenuView();
+     
 }
 
 // The startSavedGame method

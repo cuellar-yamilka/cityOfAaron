@@ -22,11 +22,13 @@ public class CropView {
     // Is this supposed to be getCrop or getCropData
     private static CropData cropData = theGame.getCrop();
     private static int price;
+
+
 // the buyLandView() method
 // Purpose: interface with the user input for buying land
 // Parameters: none
 // Returns: none
-    
+   
 public static void buyLandView(){
     
 // Get the cost of land for this round
@@ -34,7 +36,7 @@ public static void buyLandView(){
 
 // Prompt the user to enter the number of acres to buy
     System.out.format("Land is selling for %d bushels per acre.%n", price);
-    System.out.print("\nHow many acres of land do you wish to buy?");
+    System.out.print("\nHow many acres of land do you wish to buy?\n");
 
 // Get the user's input and save it
     int toBuy;
@@ -53,8 +55,11 @@ public static void runCropsView(){
 // call the buyLandView() method
     buyLandView();
     
-// add calls to the other crop view methods
-// as they are written
+// add calls to the other crop view methods as they are written
+    sellLandView();
+//  feedPeople(); goes here  
+    plantCropsView();
+    payOfferingView();
 }
 
 //Individual assignment Lesson 8 author Yamilka Cuellar
@@ -66,7 +71,7 @@ public static void runCropsView(){
 public static void plantCropsView(){
 
 // Prompt the user to enter the number of acres to plant
-System.out.format("How many acres of land do you want to plant?");
+System.out.format("\nHow many acres of land do you want to plant?\n");
 
 // Get the user's input and save it
 int toPlant;
@@ -90,7 +95,7 @@ CropControl.plantCrops(toPlant, cropData);
     // A land price was randomly generated in the buyLand() method and stored in 
     //    a class variable called "price". The value in "price" is accessed here.  
     // Ask user to enter the number of acres of land they want to sell
-        System.out.format("This year land is selling for %d bushels per acre.%n", price);
+        System.out.format("\nLand is selling for %d bushels per acre.%n", price);
         System.out.print("\nHow many acres of land would you like to sell?\n"); 
 
     //  Get the user’s input and save it.
@@ -101,7 +106,7 @@ CropControl.plantCrops(toPlant, cropData);
         CropControl.sellLand(price, toSell, cropData);
 }    
 
-// payOfferingView()        Patricia Struk      CropView assignment to do
+// payOfferingView()        Patricia Struk      Additional CropView assignment
 // The payOfferingView() method
 // Purpose: To interface with user input that will determine amount of offerings
 // Parameters: none
