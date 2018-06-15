@@ -57,7 +57,7 @@ public static void runCropsView(){
     
 // add calls to the other crop view methods as they are written
     sellLandView();
-//  feedPeople(); goes here  
+    feedPeopleView(); 
     plantCropsView();
     payOfferingView();
 }
@@ -129,5 +129,28 @@ CropControl.plantCrops(toPlant, cropData);
     // Call payOffering() to calculate and pay tithes and offerings
         CropControl.payOffering(cropData);
     
-    }    
+    }   
+    
+//Individual assignment Lesson 8 Author: Alejandra Canales
+// the feedPeopleView method()
+// Purpose: To interface with user input in order to determine grain to feed 
+// the people
+//Parameters: none
+//Returns: none
+
+public static void feedPeopleView(){
+
+// Prompt the user to enter the number of bushels of grain wanted
+System.out.print("How many bushels of grain do you want to give to the people?");
+
+// Get the user's input and save it
+int toFeed;
+toFeed = keyboard.nextInt();
+
+// Call the feedPeople() method in the control layer feed people
+CropControl.feedPeople(toFeed, price, cropData);
+
+
+}
+    
 } // end of class
