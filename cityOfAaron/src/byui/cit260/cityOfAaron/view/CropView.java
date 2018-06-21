@@ -138,7 +138,7 @@ CropControl.plantCrops(toPlant, cropData);
 public static void feedPeopleView(){
 
 // Prompt the user to enter the number of bushels of grain wanted
-System.out.print("How many bushels of grain do you want to give to the people?");
+System.out.print("\nHow many bushels of grain do you want to give to the people?\n");
 
 // Get the user's input and save it
 int toFeed;

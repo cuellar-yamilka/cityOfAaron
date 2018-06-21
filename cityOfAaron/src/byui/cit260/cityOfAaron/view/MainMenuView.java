@@ -11,7 +11,6 @@ import cityofaaron.CityOfAaron;
 import byui.cit260.cityOfAaron.model.Player;
 import byui.cit260.cityOfAaron.model.Game;
 
- 
 public class MainMenuView extends MenuView {
           
 // MainMenuView() constructor
@@ -19,8 +18,7 @@ public class MainMenuView extends MenuView {
 // Parameters: none
 // Returns: none
 // ======================================================================
-    public MainMenuView()
-    { 
+    public MainMenuView(){ 
         super("\n" +
                 "********************************************\n" +
                 "*   CITY OF AARON: MAIN MENU *\n" + 
@@ -30,7 +28,7 @@ public class MainMenuView extends MenuView {
                 "3 - Get help on playing the game\n" +
                 "4 - Save game\n" +
                 "5 - Quit\n",        
-        5);
+            5);
             
     }
     
@@ -151,7 +149,7 @@ public void displayHelpMenuView()
 //    System.out.println("\nHelp menu option selected.");  STUB
         //code to get the Help Menu displayed
         HelpMenuView help = new HelpMenuView();  
-        help.displayHelpMenuView();      
+        help.displayMenu();      
     
 }
 
