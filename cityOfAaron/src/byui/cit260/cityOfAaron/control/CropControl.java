@@ -18,8 +18,8 @@ import java.util.Random;
 public class CropControl {
         
 // Constants
-     private static final int LAND_RANGE = 17;
-     private static final int LAND_BASE = 10;
+     private static final int LAND_RANGE = 10;
+     private static final int LAND_BASE = 17;
      
 // Random number generator
      private static final Random random = new Random();

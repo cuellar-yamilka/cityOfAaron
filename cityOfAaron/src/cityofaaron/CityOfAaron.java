@@ -26,7 +26,7 @@ public class CityOfAaron {
     //runs the main menu
     public static void main(String[] args) {
         MainMenuView mmv = new MainMenuView();
-        mmv.displayMenuView();
+        mmv.displayMenu();
         
         Player thePlayer = new Player();
      

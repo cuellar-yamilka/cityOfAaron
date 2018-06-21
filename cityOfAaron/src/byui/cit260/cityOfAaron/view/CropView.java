@@ -12,7 +12,6 @@ import java.util.Scanner;
 import cityofaaron.CityOfAaron;
 
 public class CropView {
-    
 // create a scanner object
     private static Scanner keyboard = new Scanner(System.in);
 
@@ -23,12 +22,10 @@ public class CropView {
     private static CropData cropData = theGame.getCrop();
     private static int price;
 
-
 // the buyLandView() method
 // Purpose: interface with the user input for buying land
 // Parameters: none
 // Returns: none
-   
 public static void buyLandView(){
     
 // Get the cost of land for this round

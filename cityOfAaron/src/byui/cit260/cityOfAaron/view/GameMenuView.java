@@ -114,7 +114,7 @@ public void doAction(int option)
           break;
         case 5: // Return to Main Menu
           MainMenuView theMenu = new MainMenuView();
-          theMenu.displayMenuView();
+          theMenu.displayMenu();
           
     }
 }
