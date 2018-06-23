@@ -7,13 +7,9 @@
 package byui.cit260.cityOfAaron.view;
 
 import byui.cit260.cityOfAaron.model.Game;
-import java.util.Scanner;
 
-public class GameMenuView {
+public class GameMenuView extends MenuView {
     
-    Scanner keyboard = new Scanner(System.in);
-    private final String gameMenu;
-    private final int max;
     private Game theGame; 
     
 // MainMenuView() constructor
@@ -23,8 +19,9 @@ public class GameMenuView {
 // ======================================================================
     
     public GameMenuView(){
-        
-       gameMenu = "\n" +
+       
+        // super: calls the base class constructor
+       super("\n" +
                 "********************************************\n" +
                 "*   CITY OF AARON: GAME MENU *\n" + 
                 "********************************************\n" +
@@ -32,63 +29,9 @@ public class GameMenuView {
                 "2 - View/Print a list\n" +
                 "3 - Move to a new location\n" +
                 "4 - Manage the crops\n" +
-                "5 - Return to the Main Menu\n";
-        
-        
-        max = 5;
+                "5 - Return to the Main Menu\n",
+               5);
     }
-    
-//The displayMenuView method
-//Purpose: displays the menu, gets the user's input, and does the selected action
-//Parameters: none
-//Returns: none
-//===================================================================== 
-    
-public void displayMenuView()
-{
-   int menuOption;
-   do{
-        //Display the menu
-        System.out.println(gameMenu);
-        
-        //Prompt the user and get the user's input
-        menuOption = getMenuOption();
-        
-        //Perform the desired action
-        doAction(menuOption);
-        
-        //Determine and display the next view
-        } while (menuOption != max);
-   
-    }
-
-// The getMenuOption method
-// Purpose: gets the user's input
-// Parameters: none
-// Returns: integer - the option selected 
-// ======================================================================
-public int getMenuOption()
-{
-    //declare a variable to hold user's input
-    int userInput;
-    
-    //begin loop
-    do {
-        // get user input from the keyboard
-        userInput = keyboard.nextInt();
-        
-        // if it is not a valid value, output an error message 
-        if(userInput < 1 || userInput > max)
-        {
-            System.out.println("\noption must be between 1 and " + max);        
-        }
-        
-        // loop back to the top if input was not valid
-        } while(userInput < 1 || userInput > max);
-    
-        // return the value input by the user
-        return userInput;
-}
 
 //The doAction method
 //Purpose: performs the selected action
@@ -96,7 +39,7 @@ public int getMenuOption()
 //Returns: none 
 //===========================================================================
 
-public void doAction(int option)
+@Override public void doAction(int option)
 {
     switch(option)
     {
@@ -113,8 +56,7 @@ public void doAction(int option)
           manageCrops();
           break;
         case 5: // Return to Main Menu
-          MainMenuView theMenu = new MainMenuView();
-          theMenu.displayMenu();
+          mainMenuView();
           
     }
 }
@@ -144,7 +86,7 @@ private void viewList() {
 //Parameters: none
 //Returns: none 
 
-    private void moveToNewLocation() {
+private void moveToNewLocation() {
         System.out.println("\nThis is the move to a new location option");
     }
     
@@ -156,6 +98,11 @@ private void viewList() {
     private void manageCrops() {
 //      System.out.println("\nThis is manage the crops option");
         CropView.runCropsView();
+    }
+    
+private void mainMenuView(){
+    System.out.println(menu);
+        
     }
 
     

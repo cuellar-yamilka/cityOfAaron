@@ -124,7 +124,7 @@ public void startNewGame()
        
 //Display the Game menu
     GameMenuView gameMenu = new GameMenuView();
-    gameMenu.displayMenuView();
+    gameMenu.displayMenu();
      
 }
 
