@@ -78,7 +78,7 @@ private void viewMap() {
 
 private void viewList() {
         PrintListMenuView listMenu = new PrintListMenuView();
-          listMenu.displayPrintListMenuView();
+          listMenu.displayMenu();
     }
 
 //The moveToNewLocation method
