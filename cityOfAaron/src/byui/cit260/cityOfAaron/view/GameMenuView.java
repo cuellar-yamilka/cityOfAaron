@@ -56,7 +56,7 @@ public class GameMenuView extends MenuView {
           manageCrops();
           break;
         case 5: // Return to Main Menu
-          mainMenuView();
+            System.out.println();
           
     }
 }
@@ -98,11 +98,6 @@ private void moveToNewLocation() {
     private void manageCrops() {
 //      System.out.println("\nThis is manage the crops option");
         CropView.runCropsView();
-    }
-    
-private void mainMenuView(){
-    System.out.println(menu);
-        
     }
 
     
