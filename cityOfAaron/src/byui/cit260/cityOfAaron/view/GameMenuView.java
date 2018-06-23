@@ -56,7 +56,7 @@ public class GameMenuView extends MenuView {
           manageCrops();
           break;
         case 5: // Return to Main Menu
-            System.out.println();
+            System.out.println("You will return to the Main Menu now");
           
     }
 }
