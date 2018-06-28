@@ -6,10 +6,7 @@
 //----------------------------------------------------------------
 package byui.cit260.cityOfAaron.view;
 
-import byui.cit260.cityOfAaron.model.CropData;
-import cityofaaron.CityOfAaron;
-import byui.cit260.cityOfAaron.model.Player;
-import byui.cit260.cityOfAaron.model.Game;
+import byui.cit260.cityOfAaron.control.*;
 
 public class MainMenuView extends MenuView {
           
@@ -63,14 +60,7 @@ public class MainMenuView extends MenuView {
 //Parameters: none
 //Returns: none
 //============================================================================
-public void startNewGame() 
-{ 
-    //Create a new Game object.
-    Game theGame = new Game();
-    
-    //Save a reference to it in the CityOfAaron class.
-    CityOfAaron.setTheGame(theGame);
-    
+public void startNewGame() { 
     //Display the Banner Page.
     System.out.println("\nHELP WANTED: City Administrator, competitive"  
             + " salary with benefits.\n\nYour mission, if you choose to accept" 
@@ -83,46 +73,18 @@ public void startNewGame()
             + " \nterminated if too many people die from starvation. Only serious"  
             + " candidates need apply. \nIf you're ready to begin...");
     
-    //Create a new Player object.
-    Player thePlayer = new Player();
-    
     //Prompt for and get the user's name.
     String name;
     System.out.println("\nPlease type in your first name: ");
     name = keyboard.next();
-    
-    //Save the user's name in the Player object
-    thePlayer.setName(name);
-    
-    //Save a reference to the player object in the Game object
-    theGame.setThePlayer(thePlayer);
-    
+   
     //Display a welcome message
     System.out.println("\nWelcome " + name + " have fun.");
     
-    // Create a CropData object
-    CropData cropData = new CropData();
-    
-    // Initialize it
-    
-    cropData.setYear(0);
-    cropData.setPopulation(100);
-    cropData.setNewPeople(5);
-    cropData.setCropYield(3);
-    cropData.setNumberWhoDied(0);
-    cropData.setOffering(10);
-    cropData.setWheatInStore(2700);
-    cropData.setAcresOwned(1000);
-    cropData.setAcresPlanted(1000);
-    cropData.setHarvest(3000);
-    cropData.setOfferingBushels(300);
-    cropData.setAcresPlanted(1000);
-    
-    // save a reference to it in the Game
-    
-    theGame.setCrop(cropData);
-       
-//Display the Game menu
+    //call the createNewGame( ) method. Pass the name as a parameter
+    GameControl.createNewGame(name);
+         
+    //Display the Game menu
     GameMenuView gameMenu = new GameMenuView();
     gameMenu.displayMenu();
      

@@ -7,7 +7,6 @@
 package byui.cit260.cityOfAaron.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 /**
  *
@@ -15,13 +14,17 @@ import java.util.ArrayList;
  */
 public class ListItem implements Serializable {
     
-    ArrayList<String> menuOption = new ArrayList<>();
-    
     private String name;
     private int number;
     
+    public ListItem(){
+    
+    }
 
-    public ListItem() {
+
+    public ListItem(String name, int number) {
+        this.name = name;
+        this.number = number;
     }
     
     

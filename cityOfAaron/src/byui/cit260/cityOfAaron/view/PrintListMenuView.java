@@ -6,7 +6,14 @@
 //--------------------------------------------------------------
 package byui.cit260.cityOfAaron.view;
 
+
+import java.util.ArrayList;
+import cityofaaron.CityOfAaron;
+import byui.cit260.cityOfAaron.model.*;
+        
 public class PrintListMenuView extends MenuView {
+   
+   
 
 // PrintListMenuView() constructor
 // Purpose: Initialize the Print List menu
@@ -26,8 +33,9 @@ public PrintListMenuView(){
                 "5 - Quit\n",
         
         
-    5) ;     
+             5) ;     
 } 
+
 
 //The doAction method
 //Purpose: performs the selected action
@@ -62,7 +70,14 @@ public PrintListMenuView(){
 //Returns: none
 //============================================================================
   private void viewAnimals() {
-        System.out.println("\nThis is the list of animals in your storehouse");
+        Game theGame = CityOfAaron.getTheGame();
+        ArrayList<ListItem> animals = theGame.getAnimals();
+        
+        System.out.println("The following animals are found in the storehouse");
+        
+        for(ListItem n: animals){
+            System.out.println(n.getName() + ": " + n.getNumber());
+        }
     }
   
   
