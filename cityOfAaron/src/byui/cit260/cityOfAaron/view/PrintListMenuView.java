@@ -10,9 +10,8 @@ package byui.cit260.cityOfAaron.view;
 import java.util.ArrayList;
 import cityofaaron.CityOfAaron;
 import byui.cit260.cityOfAaron.model.*;
-        
+
 public class PrintListMenuView extends MenuView {
-   
    
 
 // PrintListMenuView() constructor
@@ -73,7 +72,7 @@ public PrintListMenuView(){
         Game theGame = CityOfAaron.getTheGame();
         ArrayList<ListItem> animals = theGame.getAnimals();
         
-        System.out.println("The following animals are found in the storehouse");
+        System.out.println("\nThe following animals are found in the storehouse:\n");
         
         for(ListItem n: animals){
             System.out.println(n.getName() + ": " + n.getNumber());
@@ -88,8 +87,8 @@ public PrintListMenuView(){
 //============================================================================
   
  private void viewTools() {
-        System.out.println("\nThis is the list of tools in your storehouse");
-    }
+    System.out.println("\nThis is the list of tools in your storehouse");
+}
   
   // The viewProvisions method
 //Purpose: displays provisions in storehouse
@@ -98,19 +97,30 @@ public PrintListMenuView(){
 //============================================================================
  
  private void viewProvisions() {
-        System.out.println("\nThis is the list of provisions in your storehouse");
-    }
-  
-  // The viewAuthors method
+    System.out.println("\nThis is the list of provisions in your storehouse");
+}
+
+//Lesson 10 - Individual Assignment             Author: Patricia Struk 
+
+//The viewAuthors() method
 //Purpose: displays authors of game
 //Parameters: none
 //Returns: none
 //============================================================================
  
  private void viewAuthors() {
-        System.out.println("\nThese are the authors of this game");
+ 
+    System.out.println("\nThe authors of this game are: ");
+    
+    // Extract TeamMember objects in the enum list and put into an array
+    TeamMember[] members = TeamMember.values();
+       
+    // Using a for-each loop, iterate through the array and display names 
+    // and titles of game authors
+    for(TeamMember name: members) {
+        System.out.println("\n" + name.getName() + " (" + name.getTitle() + ")");
     }
-  
-  
-  
-}//end of code
+}
+ 
+ 
+}//end of class
