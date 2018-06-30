@@ -20,6 +20,7 @@ public class Game implements Serializable {
     private Player thePlayer;
     private CropData cropData = null;
     private ArrayList<ListItem> animals;
+    private ArrayList<ListItem> tools;
     private Map theMap;
 
     public Game() {
@@ -69,6 +70,23 @@ public void setAnimals(ArrayList<ListItem> animals){
     this.animals = animals;
 }
 
+// the getTools method
+//Purpose: to retrieve the array list of tools
+//Parameters:none
+//Returns: a reference to a tool object
+public ArrayList<ListItem> getTools(){
+    return tools ;
+}
+
+
+//the setTools method
+//Purpose: to save a list of tools in an array list
+//Parameters: a reference to a tool object list
+//Returns: none
+public void setTools(ArrayList<ListItem> tools){
+    this.tools = tools;
+
+}
 
 public Map getMap(){
     return theMap;

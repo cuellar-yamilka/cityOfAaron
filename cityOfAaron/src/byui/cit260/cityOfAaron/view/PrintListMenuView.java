@@ -79,16 +79,25 @@ public PrintListMenuView(){
         }
     }
   
-  
-  // The viewTools method
+  //Lesson 10 - Individual Assignment             Author: Alejandra Canales
+
+// The viewTools method
 //Purpose: displays tools in storehouse
 //Parameters: none
 //Returns: none
-//============================================================================
+//=============================================================================
   
  private void viewTools() {
-    System.out.println("\nThis is the list of tools in your storehouse");
-}
+        Game theGame = CityOfAaron.getTheGame();
+        ArrayList<ListItem> tools = theGame.getTools();
+        
+        System.out.println("\nThis is the list of tools in your storehouse");
+    
+        for(ListItem n: tools){
+            System.out.println(n.getName() + ": " + n.getNumber());
+        }
+    }  
+ 
   
   // The viewProvisions method
 //Purpose: displays provisions in storehouse

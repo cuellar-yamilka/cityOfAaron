@@ -97,6 +97,21 @@ public static void createAnimalList(){
 }   
 
 public static void createToolList(){
+    // create an ArrayList<ListItem> object and the list of tools in array   
+    ArrayList<ListItem> tools = new ArrayList<>();
+    
+    tools.add(new ListItem("axes", 15));
+    tools.add(new ListItem("hammers", 10));
+    tools.add(new ListItem("nails", 150));
+    tools.add(new ListItem("pliers", 12));
+    tools.add(new ListItem("rakes", 13));
+    tools.add(new ListItem("screwdrivers", 14));
+    tools.add(new ListItem("wrenches", 10));
+    tools.add(new ListItem("nuts", 30));
+    tools.add(new ListItem("steel wools", 8));
+    tools.add(new ListItem("tape measurers", 6));
+    
+    theGame.setTools(tools);
     
 }
 
