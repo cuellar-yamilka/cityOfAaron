@@ -115,8 +115,28 @@ public static void createToolList(){
     
 }
 
-        
+// Individual assignment Lesson 10 Author: Yamilka Cuellar        
 public static void createProvisionList(){
+    
+// create an ArrayList<ListItem> object and the list of provisions in array   
+    ArrayList<ListItem> provisions = new ArrayList<>();
+    
+    provisions.add(new ListItem("gallons of water", 1000));
+    provisions.add(new ListItem("bushels of wheat", 2700));
+    provisions.add(new ListItem("pounds of rice", 700));
+    provisions.add(new ListItem("pounds of beans", 500));
+    provisions.add(new ListItem("blankets", 100));
+    provisions.add(new ListItem("first aid kit", 200));
+    provisions.add(new ListItem("gallons of rat bait", 300));
+    provisions.add(new ListItem("soap", 1200));
+    provisions.add(new ListItem("woman shoes", 200));
+    provisions.add(new ListItem("man shoes", 200));
+    provisions.add(new ListItem("woman clothes", 400));
+    provisions.add(new ListItem("man clothes", 400));
+    provisions.add(new ListItem("lantern", 200));
+    
+    theGame.setProvisions(provisions);   
+
     
 }
   

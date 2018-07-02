@@ -21,6 +21,7 @@ public class Game implements Serializable {
     private CropData cropData = null;
     private ArrayList<ListItem> animals;
     private ArrayList<ListItem> tools;
+    private ArrayList<ListItem> provisions;
     private Map theMap;
 
     public Game() {
@@ -85,6 +86,25 @@ public ArrayList<ListItem> getTools(){
 //Returns: none
 public void setTools(ArrayList<ListItem> tools){
     this.tools = tools;
+
+}
+
+// Individual assignment Lesson 10 Author: Yamilka Cuellar
+
+// the getProvisions method
+//Purpose: to retrieve the array list of provisions
+//Parameters:none
+//Returns: a reference to a provisions object
+public ArrayList<ListItem> getProvisions(){
+    return provisions ;
+}
+
+//the setProvisions method
+//Purpose: to save a list of tools in an array list
+//Parameters: a reference to a provisions object list
+//Returns: none
+public void setProvisions(ArrayList<ListItem> provisions){
+    this.provisions = provisions;
 
 }
 

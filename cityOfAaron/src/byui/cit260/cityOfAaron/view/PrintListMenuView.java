@@ -98,15 +98,21 @@ public PrintListMenuView(){
         }
     }  
  
-  
-  // The viewProvisions method
+//Lesson 10 - Individual Assignment             Author: Yamilka Cuellar   
+//The viewProvisions method
 //Purpose: displays provisions in storehouse
 //Parameters: none
 //Returns: none
 //============================================================================
+private void viewProvisions() {
+        Game theGame = CityOfAaron.getTheGame();
+        ArrayList<ListItem> provisions = theGame.getProvisions();
  
- private void viewProvisions() {
-    System.out.println("\nThis is the list of provisions in your storehouse");
+        System.out.println("\nThis is the list of provisions in your storehouse");
+        
+        provisions.forEach((n) -> {
+            System.out.println(n.getName() + ": " + n.getNumber());
+    });
 }
 
 //Lesson 10 - Individual Assignment             Author: Patricia Struk 
