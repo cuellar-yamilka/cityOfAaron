@@ -2,10 +2,11 @@
  * The class contains all of the calculation methods for managing the crops
  * CIT-260
  * Authors: Patricia Struk, Alejandra Canales, Yamilka Cuellar
- * Last modified: May 31, 2018
+ * Last modified: July 4, 2018
  */
 package byui.cit260.cityOfAaron.control;
 
+import byui.cit260.cityOfAaron.exceptions.CropException;
 import byui.cit260.cityOfAaron.model.CropData;
 import java.util.Random;
 
@@ -35,23 +36,24 @@ public class CropControl {
 // The population needs to be enough to tend all the land owned and bought 
 // 1 person can tend 10 acres
 
-    public static int buyLand(int landPrice, int acresToBuy, CropData cropData){
+    public static void buyLand(int landPrice, int acresToBuy, CropData cropData) 
+        throws CropException {
      
-// If acres to buy  < 0, return -1
-        if (acresToBuy < 0) {
-            return -1;
+// If acres to buy  < 0, throw exception
+        if (acresToBuy < 0){ 
+            throw new CropException("Negative values are not allow, please try again");
         }
-// If wheatInStore < (acresToBuy * landPrice), return -1
+// If wheatInStore < (acresToBuy * landPrice), throw exception
         if (cropData.getWheatInStore() < (acresToBuy * landPrice)) {
-            return -1;
+            throw new CropException("There is insufficient wheat to buy this much land");
         }
 
-// If population < populationNeeded, return -1
+// If population < populationNeeded, throw exception
         int populationNeeded = (cropData.getAcresOwned() + acresToBuy) / 10;
         if (cropData.getPopulation() < populationNeeded) {
-            return -1;
-        } 
-        
+            throw new CropException ("There are not enough people to work that much land");
+     
+        }
 // acresOwned = acresOwned + acresToBuy
         int acresOwned = cropData.getAcresOwned() + acresToBuy;
         cropData.setAcresOwned(acresOwned); 
@@ -60,8 +62,6 @@ public class CropControl {
         int wheatInStore = cropData.getWheatInStore() - (acresToBuy * landPrice);
         cropData.setWheatInStore(wheatInStore);
         
-// return acresOwned
-        return acresOwned;
     } 
     
 // Lesson 6 Individual Assignment - setOffering() method - AUTHOR Patricia Struk

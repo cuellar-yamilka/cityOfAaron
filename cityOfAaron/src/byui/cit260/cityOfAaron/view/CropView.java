@@ -8,6 +8,7 @@ package byui.cit260.cityOfAaron.view;
 
 import byui.cit260.cityOfAaron.model.*;
 import byui.cit260.cityOfAaron.control.*;
+import byui.cit260.cityOfAaron.exceptions.CropException;
 import java.util.Scanner;
 import cityofaaron.CityOfAaron;
 
@@ -26,21 +27,38 @@ public class CropView {
 // Purpose: interface with the user input for buying land
 // Parameters: none
 // Returns: none
+    
 public static void buyLandView(){
     
 // Get the cost of land for this round
     price = CropControl.calcLandCost();
-
-// Prompt the user to enter the number of acres to buy
+    // Display the current price of buying an acre of land in bushels of wheat
     System.out.format("Land is selling for %d bushels per acre.%n", price);
-    System.out.print("\nHow many acres of land do you wish to buy?\n");
-
-// Get the user's input and save it
+    
     int toBuy;
-    toBuy = keyboard.nextInt();
-
-// Call the buyLand() method in the control layer to buy the land
-    CropControl.buyLand(price, toBuy, cropData); 
+    boolean paramsNotOkay;
+    //Set up a do-while loop to try and catch exceptions, set paramsNotOkay to false
+    do
+    {
+        paramsNotOkay = false;
+        // Prompt the user to enter the number of acres to buy
+        System.out.print("\nHow many acres of land do you wish to buy?\n");
+        // Get the users input and save it
+        toBuy = keyboard.nextInt();
+        
+        try
+        {
+            // Call the buyLand() method in the control layer to buy the land
+            CropControl.buyLand(price, toBuy, cropData); 
+        }
+        catch(CropException e){
+            System.out.println("I am sorry master, I cannot do this.");
+            System.out.println(e.getMessage());
+            // Set paramsNotOkay to true
+            paramsNotOkay = true;
+        }
+    } while(paramsNotOkay);
+    
 }
 
 // the runCropsView method()
