@@ -85,15 +85,29 @@ public static void runCropsView(){
 
 public static void plantCropsView(){
 
-// Prompt the user to enter the number of acres to plant
-System.out.format("\nHow many acres of land do you want to plant?\n");
-
 // Get the user's input and save it
 int toPlant;
-toPlant = keyboard.nextInt();
 
-// Call the plantCrops() method in the control layer to plant the crops
-CropControl.plantCrops(toPlant, cropData); 
+boolean paramsNotOkay;
+//Set up a do-while loop to try and catch exceptions, set paramsNotOkay to false
+do {
+    paramsNotOkay = false;
+    // Prompt the user to enter the number of acres to plant
+    System.out.println("\nHow many acres of land do you want to plant? "
+            + "You can plant 2 acres with one bushel of wheat.\n");
+    toPlant = keyboard.nextInt();
+    
+    try {
+        // Call the plantCrops() method in the control layer to plant the crops
+        CropControl.plantCrops(toPlant, cropData);        
+    }
+    catch(CropException e){
+        System.out.println("\nI am sorry master, I cannot do this.\n");
+        System.out.println(e.getMessage());
+        paramsNotOkay = true;
+    }
+} while(paramsNotOkay);
+ 
 }
 
 

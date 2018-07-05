@@ -104,21 +104,22 @@ public class CropControl {
 // The amount of wheat in store has to be enough to plant the land 
 //     (you can plant 2 acres with one bushel of wheat)
 
-    public static int plantCrops(int acresPlanted,  CropData cropData){
+    public static void plantCrops(int acresPlanted,  CropData cropData)
+    throws CropException{
 
-//If acresPlanted < 0, return -1
+//If acresPlanted < 0, throw exception
         if (acresPlanted < 0) {
-            return -1;
+            throw new CropException("A negative value was input");
         }
 
-//If acresPlanted > acresOwned, return -1
+//If acresPlanted > acresOwned, throw exception
         if (acresPlanted > cropData.getAcresOwned()) {
-            return -1;
+            throw new CropException("Sorry, you don't have that much land to plant");
         }
 
-//If wheatInStore < (acresPlanted / 2), return -1
+//If wheatInStore < (acresPlanted / 2), throw exception
         if (cropData.getWheatInStore() < (acresPlanted / 2)) {
-            return -1;
+            throw new CropException("Sorry, you don't have enough wheat to plant this land");
         }
 
 //wheatInStore = wheatInStore – (acresPlanted / 2)
@@ -126,12 +127,9 @@ public class CropControl {
         cropData.setWheatInStore(wheatInStore);
         
 //save the acresPlanted in the cropData object
-        cropData.setAcresPlanted(acresPlanted);
-
-//return wheatInStore
-        return wheatInStore;
-
+        cropData.setAcresPlanted(acresPlanted); 
 }
+        
 // Lesson 6 Individual Assignment - feedPeople() method - AUTHOR Alejandra Canales
 // the feedPeople method
 // purpose: to figure out how many bushels of grain the user wants to give the people
