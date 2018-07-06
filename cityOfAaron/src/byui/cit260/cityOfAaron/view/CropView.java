@@ -2,7 +2,7 @@
 // Object of this class manages the crop view 
 // CIT - 260 
 // Author: Patricia Struk, Yamilka Cuellar, Alejandra Canales
-// Date last modified: June/12/2018
+// Date last modified: July 2018
 //----------------------------------------------------------------
 package byui.cit260.cityOfAaron.view;
 
@@ -33,7 +33,7 @@ public static void buyLandView(){
 // Get the cost of land for this round
     price = CropControl.calcLandCost();
     // Display the current price of buying an acre of land in bushels of wheat
-    System.out.format("Land is selling for %d bushels per acre.%n", price);
+    System.out.format("\nLand is selling for %d bushels per acre.%n", price);
     
     int toBuy;
     boolean paramsNotOkay;
@@ -52,7 +52,7 @@ public static void buyLandView(){
             CropControl.buyLand(price, toBuy, cropData); 
         }
         catch(CropException e){
-            System.out.println("I am sorry master, I cannot do this.");
+            System.out.println("\nI am sorry master, I cannot do this.");
             System.out.println(e.getMessage());
             // Set paramsNotOkay to true
             paramsNotOkay = true;
@@ -110,7 +110,6 @@ do {
  
 }
 
-
 // Lesson 8 - Individual Assignment-sellLandView()     Author: Patricia Struk
 
 // The sellLandView() method
@@ -119,46 +118,75 @@ do {
 // Returns: none
 // ============================================================================
 
-    public static void sellLandView(){
+   public static void sellLandView(){
     
-    // A land price was randomly generated in the buyLand() method and stored in 
-    //    a class variable called "price". The value in "price" is accessed here.  
-    // Ask user to enter the number of acres of land they want to sell
-        System.out.format("\nLand is selling for %d bushels per acre.%n", price);
+// A land price was randomly generated in the buyLand() method and stored in 
+// a class variable called "price". The value in "price" is accessed here.
+    
+    //Display the current price of selling an acre of land (in bushels)
+    System.out.format("\nLand is selling for %d bushels per acre.%n", price);
+        
+    boolean paramsNotOkay;
+    //set up a do/while loop to try and catch exceptions, set paramsNotOkay to false
+    do {
+        paramsNotOkay = false;
+        // Ask user to enter the number of acres of land they want to sell
         System.out.print("\nHow many acres of land would you like to sell?\n"); 
 
-    //  Get the user’s input and save it.
+        //  Get the user’s input and save it.
         int toSell;
         toSell = keyboard.nextInt();
+        try {
+        // Call the sellLand() method in the control layer to sell the land
+            CropControl.sellLand(price, toSell, cropData);
+        }
+        catch(CropException e) {
+            System.out.println("\nI am sorry master, I cannot do this.");
+            System.out.println(e.getMessage());
+            //set paramsNotOkay to true
+            paramsNotOkay = true;
+        }
+    } while(paramsNotOkay); 
+          
+    }    
 
-    // Call the sellLand() method in the control layer to sell the land
-        CropControl.sellLand(price, toSell, cropData);
-}    
-
-// payOfferingView()        Patricia Struk      Additional CropView assignment
+// Lesson 11 - Individual Assignment - PayOfferingView()  AUTHOR: Patricia Struk      
 // The payOfferingView() method
 // Purpose: To interface with user input that will determine amount of offerings
 // Parameters: none
 // Returns: none
 // ============================================================================   
     
-    public static void payOfferingView(){
-    // Ask user to enter the percentage they would like to pay for tithes/offerings    
-        System.out.print("\nWhat percentage of the harvest do you want to pay" +
-                            " for tithes and offerings?\n");
+   public static void payOfferingView(){
     
-    // Get user's input and save it.
+    boolean paramsNotOkay;
+    //set up a do/while loop to try and catch exceptions, set paramsNotOkay to false
+    do {
+        paramsNotOkay = false;
         int theOffering;
+        
+        // Ask user to enter the percentage they would like to pay for tithes/offerings    
+        System.out.print("\nWhat percentage of the harvest do you want to pay" +
+                            " for tithes and offerings?\n");      
+        // Get user's input and save it.
         theOffering = keyboard.nextInt();
-    
-    // Call setOffering() method in control layer to check if input is valid
-    // and to save the value in the offering variable in CropData.
-        CropControl.setOffering(theOffering, cropData);
-    
+        try {
+            // Call setOffering() method in control layer to check if input is valid
+            // and to save the value in the offering variable in CropData.
+            CropControl.setOffering(theOffering, cropData);
+        }
+        catch(CropException e) {
+            System.out.println("\nI am sorry master, I cannot do this.");
+            System.out.println(e.getMessage());
+            //set paramsNotOkay to true
+            paramsNotOkay = true;
+        }
+    } while(paramsNotOkay); 
+          
     // Call payOffering() to calculate and pay tithes and offerings
         CropControl.payOffering(cropData);
     
-    }   
+    }    
     
 //Individual assignment Lesson 8 Author: Alejandra Canales
 // the feedPeopleView method()

@@ -29,7 +29,7 @@ public class CropControl {
 // Purpose: To buy land
 // Parameters: the price of land, the number of acres to buy, and a reference 
 //               to a CropData object
-// Returns: the total number of acres owned
+// Returns: none
 // Pre-conditions: The Price of the land must be >= 17 and <= 27
 // The amount of land to buy must be positive
 // The amount of wheat in store has to be enough to buy the land
@@ -41,17 +41,17 @@ public class CropControl {
      
 // If acres to buy  < 0, throw exception
         if (acresToBuy < 0){ 
-            throw new CropException("Negative values are not allow, please try again");
+            throw new CropException("\nNegative values are not allowed, please try again");
         }
 // If wheatInStore < (acresToBuy * landPrice), throw exception
         if (cropData.getWheatInStore() < (acresToBuy * landPrice)) {
-            throw new CropException("There is insufficient wheat to buy this much land");
+            throw new CropException("\nThere is insufficient wheat to buy this much land");
         }
 
 // If population < populationNeeded, throw exception
         int populationNeeded = (cropData.getAcresOwned() + acresToBuy) / 10;
         if (cropData.getPopulation() < populationNeeded) {
-            throw new CropException ("There are not enough people to work that much land");
+            throw new CropException ("\nThere are not enough people to work that much land");
      
         }
 // acresOwned = acresOwned + acresToBuy
@@ -64,31 +64,30 @@ public class CropControl {
         
     } 
     
-// Lesson 6 Individual Assignment - setOffering() method - AUTHOR Patricia Struk
+// Lesson 11 - Individual Assignment - setOffering() method - AUTHOR Patricia Struk
       
 // The setOffering() method 
 // Purpose: To get an offering percentage inputted by the user and verify if it
 //           fits the pre-conditions. If it is valid, the percentage is saved. 
 // Parameters: An offering percentage and a reference to a CropData object
-// Returns: A valid percentage, or an error message if it’s invalid.  
+// Returns: An error message if offering percentage is invalid.  
 // Pre-conditions: The percentage entered must positive. 
 //                 The percentage must be <= 100. 
 
-    public static int setOffering(int offeringPercentage, CropData cropData){
+    public static void setOffering(int offeringPercentage, CropData cropData) 
+        throws CropException{
       
-// If offeringPercentage < 0, return -1
+// If offeringPercentage < 0, throw exception
         if (offeringPercentage < 0) {
-            return -1;
+            throw new CropException("\nA negative value was input. Please try again.");
         }
-// If offeringPercentage is > 100, return -1
+// If offeringPercentage is > 100, throw exception
         if (offeringPercentage > 100) {
-            return -1;
+            throw new CropException("\nPercentage cannot exceed 100. Please try again.");
         }
 // Otherwise, save offeringPercentage 
         cropData.setOffering(offeringPercentage);  
         
-// return offeringPercentage	
-        return offeringPercentage;
     }
     
 
@@ -177,22 +176,28 @@ public static int calcLandCost()
         }
 
 
-// remaining sellLand() method in CropControl class - assigned to Patricia Struk  
+// sellLand() method                                    AUTHOR: Patricia Struk  
 // ============================================================================
 // The sellLand method
 // Purpose: To sell land
 // Parameters: the price of land, the number of acres to sell, a reference to  
 //               a CropData object
-// Returns: the number of acres left after the sale
+// Returns: none
 // Pre-conditions: acres to sell must be positive and <= the number of acresowned
-// Last modified June 2018               
+// Last modified July 2018               
 
 
-    public static int sellLand(int landPrice, int acresToSell, CropData cropData) {
+   public static void sellLand(int landPrice, int acresToSell, CropData cropData) 
+        throws CropException {
 
-// If acres to sell < 0 or if acresOwned < acresToSell, return -1
-        if(acresToSell < 0 || cropData.getAcresOwned() < acresToSell){
-            return -1;
+// If acres to sell < 0, throw an exception 
+        if(acresToSell < 0){
+            throw new CropException("\nA negative value was inputed. Please try again.");
+        }
+// If acresOwned < acresToSell, throw an exception
+        if(cropData.getAcresOwned() < acresToSell){
+            throw new CropException("\nYou tried to sell more land than you own. " +
+                                       "Please try again.");
         }
 // acresOwned = acresOwned – acresToSell, save result
         int totAcresOwned = cropData.getAcresOwned() - acresToSell;
@@ -201,12 +206,10 @@ public static int calcLandCost()
 // wheatInStore = wheatInStore + (acresToSell x landPrice), save result
         int totWheatInStore = cropData.getWheatInStore() + (acresToSell * landPrice);
         cropData.setWheatInStore(totWheatInStore);
-// return acresOwned
-        return totAcresOwned;
 
-}    
+}     
 
-// remaining payOffering() method in Crop Control class assigned to Patricia Struk   
+// payOffering() method                                 Author: Patricia Struk   
 // ============================================================================
 // The payOffering() method
 // Purpose: To calculate the amount of wheat to be paid to offerings
