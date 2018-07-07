@@ -129,7 +129,7 @@ public class CropControl {
         cropData.setAcresPlanted(acresPlanted); 
 }
         
-// Lesson 6 Individual Assignment - feedPeople() method - AUTHOR Alejandra Canales
+// Lesson 11 Individual Assignment - feedPeople() method - AUTHOR Alejandra Canales
 // the feedPeople method
 // purpose: to figure out how many bushels of grain the user wants to give the people
 // the method to allocate wheat for the feeding the people
@@ -139,15 +139,17 @@ public class CropControl {
 // pre-conditions: the amount of bushels of grain they want must be positive
 // and <= the number of wheat that the city has in storage.
     
-public static int feedPeople(int wheatWanted, int wheatInStore, CropData cropData){
+public static int feedPeople(int wheatWanted, int wheatInStore, CropData cropData)
+        throws CropException {
 
 //If wheatWanted < 0, return -1
 	if(wheatWanted < 0){
-	return -1;
+	throw new CropException("\nNegative values are not allowed, please try "
+                + "again");
         }
 //If wheatInStore < wheatWanted, return -1
 	if(cropData.getWheatInStore() < wheatWanted){
-	return -1;
+	throw new CropException("\nThere is insufficient wheat, please try again");
         }
 
 //wheatOwned = wheatInStore – wheatWanted
@@ -157,7 +159,6 @@ public static int feedPeople(int wheatWanted, int wheatInStore, CropData cropDat
 // save the wheat wanted 
         cropData.setWheatForPeople(wheatWanted);
  
-        
 //return wheatOwned
 	return wheatOwned;
     } 

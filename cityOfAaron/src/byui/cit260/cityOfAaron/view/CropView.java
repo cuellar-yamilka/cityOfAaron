@@ -188,7 +188,7 @@ do {
     
     }    
     
-//Individual assignment Lesson 8 Author: Alejandra Canales
+//Individual assignment Lesson 11 Author: Alejandra Canales
 // the feedPeopleView method()
 // Purpose: To interface with user input in order to determine grain to feed 
 // the people
@@ -196,18 +196,33 @@ do {
 //Returns: none
 
 public static void feedPeopleView(){
+    boolean paramsNotOkay;
+    //set up a do/while loop to try and catch exceptions, set paramsNotOkay to false
+    do {
+        paramsNotOkay = false;
+        int wheatWanted;
+        
+    // Prompt the user to enter the number of bushels of grain wanted to give
+        System.out.print("\nHow many bushels of grain do you want to give"
+                + " to the people?\n");
 
-// Prompt the user to enter the number of bushels of grain wanted
-System.out.print("\nHow many bushels of grain do you want to give to the people?\n");
-
-// Get the user's input and save it
-int toFeed;
-toFeed = keyboard.nextInt();
-
-// Call the feedPeople() method in the control layer feed people
-CropControl.feedPeople(toFeed, price, cropData);
-
-
-}
+   // Get the user's input
+        wheatWanted = keyboard.nextInt();
+        
+        try {
+   // Call feedPeople() method in control layer to check if input is valid
+   // and to save the value in the toFeed variable in CropData.
+            CropControl.feedPeople(wheatWanted, price, cropData);
+        }
+        catch(CropException e) {
+            System.out.println("\nI am sorry master, I cannot do this.");
+            System.out.println(e.getMessage());
+            
+            //set paramsNotOkay to true
+            paramsNotOkay = true;
+        }
+    } while(paramsNotOkay); 
+            
+    }    
     
 } // end of class
