@@ -1,14 +1,17 @@
 /* The GameControl Class - part of the Control Layer
  * CIT-260
  * Authors: Patricia Struk, Alejandra Canales, Yamilka Cuellar
- * Last modified: June 27, 2018
+ * Last modified: July 12, 2018
  */
 package byui.cit260.cityOfAaron.control;
 
 import java.util.ArrayList;
 import byui.cit260.cityOfAaron.model.*;
 import cityofaaron.CityOfAaron;
-
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 public class GameControl {
 //size of the Location array
@@ -16,7 +19,7 @@ public class GameControl {
     private static final int MAX_COL = 5;
 
 //reference to a Game object
-    private static Game theGame;
+    private static Game theGame = null;
 
     public static void createNewGame(String pName){
 
@@ -346,6 +349,44 @@ public static void createMap()   {
   
 }
 
+// The saveGame() method
+// Purpose: to save a current game which is in progress 
+// Parameters: a Game object and a file path
+// Returns: none
+//=============================================================================
+public static void saveGame(Game theGame, String filePath){
+          
+        try (FileOutputStream fops = new FileOutputStream(filePath)) {
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            output.writeObject(theGame);
+        }
+        catch(Exception e){
+            System.out.println("\nThere was an error saving your game.");
+            return;
+        }
+        System.out.println("\nYour Game has been saved.");
+}
+
+
+// The getSavedGame() method
+// Purpose: to load a saved game from the disk
+// Parameters: the file path
+// Returns: none
+// Side Effect: the game reference in the drive is updated
+//=============================================================================
+public static void getSavedGame(String filePath){
+                
+        try (FileInputStream fips = new FileInputStream(filePath)) {
+            ObjectInputStream input = new ObjectInputStream(fips);
+            theGame = (Game) input.readObject();
+            CityOfAaron.setTheGame(theGame);
+        }
+        catch(Exception e){   
+            System.out.println("\nThere was an error reading the saved game file");
+            return;
+        }
+        System.out.println("\nAll is Well! Your Game has been loaded.");
+    }
 
 }//end of class
 
