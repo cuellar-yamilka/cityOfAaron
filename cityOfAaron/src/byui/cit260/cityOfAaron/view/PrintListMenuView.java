@@ -28,7 +28,7 @@ public PrintListMenuView(){
                 "********************************************\n" +
                 "1 - Display or Save a list of the animals in the storehouse\n" +
                 "2 - Display or Save a list of the tools in the storehouse\n" +
-                "3 - List of the provisions in the storehouse\n" +
+                "3 - Display or save a list of the provisions in the storehouse\n" +
                 "4 - List of the authors of this game\n" +
                 "5 - Quit\n",
         
@@ -53,7 +53,7 @@ public PrintListMenuView(){
           viewOrSaveTools();
           break;
         case 3: // view list of provisions in the storehouse
-          viewProvisions();
+          provisionOptions();
           break;
         case 4: // view list of authors of this game
           viewAuthors();
@@ -305,7 +305,7 @@ public PrintListMenuView(){
     }//
  
  
-//Lesson 10 - Individual Assignment             Author: Yamilka Cuellar   
+//Lesson 12 - Individual Assignment             Author: Yamilka Cuellar   
 //The viewProvisions method
 //Purpose: displays provisions in storehouse
 //Parameters: none
@@ -317,10 +317,103 @@ private void viewProvisions() {
  
         System.out.println("\nThis is the list of provisions in your storehouse");
         
-        provisions.forEach((n) -> {
-            System.out.println(n.getName() + ": " + n.getNumber());
-    });
+        for(ListItem listItem: provisions) {
+            System.out.printf("%n%-21s%5d", listItem.getName() + ": ", listItem.getNumber());
+    }
+    
+            System.out.println();
 }
+
+//================================================================================
+// //Lesson 12 - Individual Assignment             Author: Yamilka Cuellar
+//The provisionOptions() method
+// Purpose: print a provisions list report or saving the provisions list
+// Parameters: none
+// Returns: none
+
+private void provisionOptions(){
+
+    int input;
+    //boolean valid = false;
+
+//display a list of options for the user to choose
+    do{
+        System.out.println("\nPress 1 to display a list of provisions.");
+        System.out.println("Press 2 to save a list of provisions.");
+        System.out.println("Press 3 to return the List Menu");
+        
+        // get the user input
+        input = keyboard.nextInt();
+        
+        switch(input){
+            case 1: //display a list of provisions
+                viewProvisions();
+                break;
+            case 2: // save a list of provisions
+                saveProvisionList();
+                break;
+            case 3: // return list menu
+                System.out.println();
+                    }
+        
+         }while (input > 0 && input < 3);
+        
+
+    }  
+
+//================================================================================
+// //Lesson 12 - Individual Assignment             Author: Yamilka Cuellar
+//The saveProvisionList() method
+// Purpose: save the provisions list
+// Parameters:none 
+// Returns: none
+    private void saveProvisionList(){
+
+// declare a string to hold the file name
+   String fileName;
+   
+// declare a reference to a PrintWriter object
+   PrintWriter outFile = null;
+   
+// prompt the user for a file name, get and save the user's input
+    System.out.println("\nPlease enter the file name for your provision list to be saved."); 
+    keyboard.nextLine(); 
+    fileName = keyboard.nextLine();
+     
+try{
+    // create the PrintWriter object
+       outFile = new PrintWriter(fileName);
+    
+    // get a reference to the ArrayList you want to output     
+    Game theGame = CityOfAaron.getTheGame();
+    ArrayList<ListItem> provisionList = theGame.getProvisions();
+    
+    // output a heading for the report
+    outFile.println("\n              Provisions Report                   ");
+    outFile.printf("%n%-20s%10s", "Description", "Quantity");
+    outFile.printf("%n%-20s%10s", "===========", "========");
+    
+    // use a for loop to get the data from the ArrayList and output it
+       for(ListItem listItem: provisionList){
+           outFile.printf("%n%-20s%7d", listItem.getName()
+                                  , listItem.getNumber());  
+}
+}
+
+catch(Exception e){
+    // output error message
+    System.out.println("I'm sorry, your list can't be saved. Try again !!");
+    return;
+}
+
+finally{
+    //close the file
+    if (outFile != null){
+        outFile.close();
+    }
+}
+}
+    
 
 //Lesson 10 - Individual Assignment             Author: Patricia Struk 
 
