@@ -8,7 +8,6 @@ package byui.cit260.cityOfAaron.view;
 
 import byui.cit260.cityOfAaron.control.*;
 import byui.cit260.cityOfAaron.model.*;
-import java.util.Scanner;
 
 public class MainMenuView extends MenuView {
           
@@ -31,10 +30,10 @@ public class MainMenuView extends MenuView {
             
     }
     
-//The doAction method
-//Purpose: performs the selected action
-//Parameters: none
-//Returns: none 
+// The doAction method
+// Purpose: performs the selected action
+// Parameters: none
+// Returns: none 
 //===========================================================================
 
 @Override public void doAction(int option)
@@ -58,9 +57,9 @@ public class MainMenuView extends MenuView {
     }
 }
 // The startNewGame method
-//Purpose: creates game object and starts the game
-//Parameters: none
-//Returns: none
+// Purpose: creates game object and starts the game
+// Parameters: none
+// Returns: none
 //============================================================================
 public void startNewGame() { 
     //Display the Banner Page.
@@ -92,24 +91,23 @@ public void startNewGame() {
      
 }
 
-//The startSavedGame method - Gets a file name from the user, passes this file 
-//  name to a method in the GameControl class, which loads a saved Game from the 
-//  disk.  
-//Purpose: starts an existing saved game.  
-//Parameters: none
-//Returns: none
+// The startSavedGame method - Gets a file name from the user, passes this file 
+//   name to a method in the GameControl class, which loads a saved Game from the 
+//   disk.  
+// Purpose: starts an existing saved game.  
+// Parameters: none
+// Returns: none
 //============================================================================
 
 public static void startSavedGame() {
     
-    Scanner input = new Scanner(System.in);
     // get rid of nl character left in the stream (with a dummy nextLine())
-    // input.nextLine();  We commented this code out because it was causing our run to pause here.
+    keyboard.nextLine();
   
     // prompt user and get a file path
     System.out.println("Please enter the name of the file path where your game "
             + "is stored.");
-    String path = input.nextLine();
+    String path = keyboard.nextLine();
     
     // call the getSavedGame( ) method in the GameControl class to load the game
     GameControl.getSavedGame(path);
@@ -121,39 +119,36 @@ public static void startSavedGame() {
 }
 
 // The displayHelpMenuView method
-//Purpose: displays the help menu
-//Parameters: none
-//Returns: none
+// Purpose: displays the help menu
+// Parameters: none
+// Returns: none
 //============================================================================
 public void displayHelpMenuView()
 { 
-//    System.out.println("\nHelp menu option selected.");  STUB
-        //code to get the Help Menu displayed
-        HelpMenuView help = new HelpMenuView();  
-        help.displayMenu();      
+    //code to get the Help Menu displayed
+    HelpMenuView help = new HelpMenuView();  
+    help.displayMenu();      
     
 }
 
-//The displaySaveGameView() method
-//Purpose: displays the save game menu options 
-//Parameters: none
-//Returns: none
+// The displaySaveGameView() method
+// Purpose: displays the save game menu options 
+// Parameters: none
+// Returns: none
 //============================================================================
 public void displaySaveGameView() {
     
     // get rid of nl character left in the stream (with a dummy nextLine())
-    Scanner input = new Scanner(System.in);
+    keyboard.nextLine();
     
     // prompt user and get a file path
     System.out.println("\nPlease enter the name of the file path where you would "
             + "like to save this game.");
-    String path = input.nextLine();
+    String path = keyboard.nextLine();
     
     // call the saveGame() method in the GameControl class to save the game
-    Game game = cityofaaron.CityOfAaron.getTheGame(); //?????
+    Game game = cityofaaron.CityOfAaron.getTheGame(); 
     GameControl.saveGame(game, path);
-    
-    //System.out.println("\nYour Game has been saved.");
     
     // display the gameMenuView options to user
     GameMenuView gameMenu = new GameMenuView();
@@ -161,6 +156,4 @@ public void displaySaveGameView() {
     
 }
 
-
-
-      }//end of class
+}//end of class
