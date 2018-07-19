@@ -6,7 +6,7 @@
 //----------------------------------------------------------------
 package byui.cit260.cityOfAaron.view;
 
-import byui.cit260.cityOfAaron.model.Game;
+import byui.cit260.cityOfAaron.model.*;
 
 public class GameMenuView extends MenuView {
     
@@ -61,15 +61,54 @@ public class GameMenuView extends MenuView {
     }
 }
 
-//The viewMap method
-//Purpose: Show a map of the City of Aaron
-//Parameters: none
-//Returns: none 
+// Lesson 13 - Individual Assignment                    AUTHOR: Patricia Struk
 
-private void viewMap() {
-    System.out.println("\nThis is the map of The City Of Aaron");
-          
-    }
+// The viewMap method
+// Purpose: Displays a map of the City of Aaron, along with a key for the map
+// Parameters: none
+// Returns: none
+// Last Modified July 19, 2018
+//=============================================================================
+    private void viewMap() {
+           
+        // Get the current game 
+        theGame = cityofaaron.CityOfAaron.getTheGame();
+        
+        // Get the map   
+        Map map = theGame.getMap();
+        Location locations = null;
+        
+        // Print the map's title
+        System.out.println("\n*** Map: CITY OF AARON and Surrounding Area ***\n");
+        // Print the column numbers 
+        System.out.println("     1     2     3     4     5");
+            // for every row:
+            for (int i = 0; i < max; i++){
+                // Print a row divider
+                System.out.println("  -------------------------------");
+                // Print the row number
+                System.out.print((i + 1) + " ");
+                // for every column:
+                for(int j = 0; j<max; j++){
+                    // Print a column divider
+                    System.out.print("|");
+                    // Get the symbols and locations(row, column) for the map
+                    locations = map.getLocation(i, j);
+                    System.out.print(" " + locations.getSymbol() + " ");
+                }
+                // Print the ending column divider
+                System.out.println("|");
+            }
+            // Print the ending row divider
+            System.out.println("  -------------------------------\n");
+            
+            // Print a key for the map
+            System.out.println("Key:\n" + "|=| - Temple\n" + "~~~ - River\n" 
+                + "!!! - Farmland\n" + "^^^ - Mountains\n" + "[*] - Playground\n" 
+                + "$$$ - Capital " + "City of Aaron\n" + "### - Chief Judge/Courthouse\n" 
+                + "YYY - Forest\n" + "TTT - Toolshed\n" +"xxx - Pasture with "
+                + "Animals\n" + "+++ - Storehouse\n" +">>> - Undeveloped Land\n");
+    } 
 
 //The viewList method
 //Purpose: View/print a list of options
