@@ -22,6 +22,10 @@ public class CropControl {
      private static final int LAND_RANGE = 10;
      private static final int LAND_BASE = 17;
      
+// constants for the cropYield()
+     private static final int YIELD_RANGE = 3;
+     private static final int YIELD_BASE = 2;
+     
 // Random number generator
      private static final Random random = new Random();
      
@@ -116,19 +120,20 @@ public class CropControl {
             throw new CropException("Sorry, you don't have that much land to plant");
         }
 
-//If wheatInStore < (acresPlanted / 2), throw exception
-        if (cropData.getWheatInStore() < (acresPlanted / 2)) {
+//If wheatInStore < (acresPlanted * 2), throw exception
+        if (cropData.getWheatInStore() < (acresPlanted * 2)) {
             throw new CropException("Sorry, you don't have enough wheat to plant this land");
         }
 
-//wheatInStore = wheatInStore – (acresPlanted / 2)
-        int wheatInStore = cropData.getWheatInStore() - (acresPlanted / 2);
-        cropData.setWheatInStore(wheatInStore);
+//wheatInStore = wheatInStore – (acresPlanted * 2)
+        int updateWheatInStore = cropData.getWheatInStore() - (acresPlanted * 2);
+        cropData.setWheatInStore(updateWheatInStore);
         
 //save the acresPlanted in the cropData object
-        cropData.setAcresPlanted(acresPlanted); 
-}
+        cropData.setAcresPlanted(acresPlanted);
         
+            
+}
 // Lesson 11 Individual Assignment - feedPeople() method - AUTHOR Alejandra Canales
 // the feedPeople method
 // purpose: to figure out how many bushels of grain the user wants to give the people
@@ -209,6 +214,44 @@ public static int calcLandCost()
         cropData.setWheatInStore(totWheatInStore);
 
 }     
+   
+//=============================================================================
+// Individual Assignment: Lesson 13                      Author: Yamilka Cuellar   
+// The harvestCrops() method
+// Purpose: Calculate the cropYield
+// Parameters: Reference to CropData objects
+// Returns: none
+// Last modified July 21 2018               
+
+    public static int harvestCrops(CropData cropData) {
+        
+        // Calculate cropYield that is equal to a random number base on the 
+        // percentage paid in offerings.
+        int cropYield;
+        
+        // If the percentage the player use to pay tithe and offering is between 8-12%
+        if (cropData.getOffering() >= 8 && cropData.getOffering() <= 12) {
+            cropYield = random.nextInt(YIELD_RANGE) + YIELD_BASE;
+            cropData.setCropYield(cropYield);
+        }
+            
+        // If the percentage the player use to pay tithe and offering is below 8%
+        if (cropData.getOffering() < 8 ) {
+            cropYield = random.nextInt(YIELD_RANGE) + (YIELD_BASE - 1);
+            cropData.setCropYield(cropYield);
+        }
+        // If the percentage the player use to pay tithe and offering is between 8-12%
+        if (cropData.getOffering() > 12) {
+            cropYield = random.nextInt(YIELD_RANGE + 1) + YIELD_BASE;
+            cropData.setCropYield(cropYield);
+        }
+        
+        // Calculate the number of bushels of wheat harvested.
+        int harvest = cropData.getAcresPlanted() * cropData.getCropYield();
+        cropData.setHarvest(harvest);
+        return harvest;
+        
+    }
 
 // payOffering() method                                 Author: Patricia Struk   
 // ============================================================================
@@ -242,6 +285,35 @@ public static int calcLandCost()
         return wheatInStore;
 
 }
+
+//=============================================================================
+// Individual Assignment: Lesson 13                      Author: Yamilka Cuellar   
+// The calcStarved () method
+// Purpose: Calculate the number of people adequately fed 
+//and return the number of people that starved and died.
+// Parameters: Reference to CropData objects
+// Returns: The number of people that starved
+// Last modified July 21 2018               
+
+    public static int calcStarved(CropData cropData) {
+        
+// Calculate how many people were adequately fed during the year
+     int peopleFed = cropData.getWheatForPeople() / 20;
+     int numberWhoDied;
+          
+// Calculate how many people died of starvation
+     if (peopleFed < cropData.getPopulation()){
+        numberWhoDied = cropData.getPopulation() - peopleFed;
+        // Save the numberWhoDied to the cropData object
+        cropData.setNumberWhoDied(numberWhoDied);
+     }
+// Subtract the numberWhoDied from the current population   
+    int population = cropData.getPopulation() - cropData.getNumberWhoDied();
+// Update population in the cropData object
+    cropData.setPopulation(population);
+
+    return population;
+    }
 
 
 
