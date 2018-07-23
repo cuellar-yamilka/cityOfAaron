@@ -299,6 +299,8 @@ public static int calcLandCost()
         
 // Calculate how many people were adequately fed during the year
      int peopleFed = cropData.getWheatForPeople() / 20;
+     cropData.setPeopleFed(peopleFed);
+     
      int numberWhoDied;
           
 // Calculate how many people died of starvation
